@@ -1,8 +1,8 @@
 test test
 I have changed the file
 
-<<<<<<< HEAD
+
 Rechange
-=======
+
 i edit it - florian
->>>>>>> ad524e9fc7c5d67c8dfe64e179dc6acca7727348
+
