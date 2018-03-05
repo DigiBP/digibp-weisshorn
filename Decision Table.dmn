@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_0lnu0ao" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision" name="Assess The Application">
+    <extensionElements>
+      <biodi:bounds x="197" y="195" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable">
+      <input id="input1" label="Gategory">
+        <inputExpression id="inputExpression1" typeRef="string">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_179srw2">
+          <text><![CDATA["Child","Young","Old"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_06f5mhg" label="Illness">
+        <inputExpression id="LiteralExpression_0qpukyq" typeRef="string" />
+        <inputValues id="UnaryTests_1niri4r">
+          <text><![CDATA["None","Not too Hard","Hard"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0o7nkfg" label="Risk" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_08sue7r" typeRef="string">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1tf0rae">
+          <text><![CDATA["Low","Medium","High"]]></text>
+        </inputValues>
+      </input>
+      <output id="output1" label="" name="" typeRef="string">
+        <outputValues id="UnaryTests_00np9wp">
+          <text><![CDATA["Accept","Reject","Offer Alternative"]]></text>
+        </outputValues>
+      </output>
+      <rule id="row-787775133-1">
+        <inputEntry id="UnaryTests_0bcgyv3">
+          <text><![CDATA["Child", "Young", "Old"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_122fojn">
+          <text><![CDATA["None", "Not too Hard"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cg64mt">
+          <text><![CDATA["Low", "Medium"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0filw3s">
+          <text><![CDATA["Accept"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-787775133-2">
+        <inputEntry id="UnaryTests_02twpob">
+          <text><![CDATA["Child", "Young", "Old"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vthwdb">
+          <text><![CDATA["Hard"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17d0e5j">
+          <text><![CDATA["Medium"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0drrbb2">
+          <text><![CDATA["Offer Alternative"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-787775133-3">
+        <inputEntry id="UnaryTests_1nd25p4">
+          <text><![CDATA["Old"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jccuyt">
+          <text><![CDATA["Hard"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sq1xif">
+          <text><![CDATA["High"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yb2xwc">
+          <text><![CDATA["Reject"]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
