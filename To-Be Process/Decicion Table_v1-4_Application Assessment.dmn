@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="definitions_1i6ywml" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="AssessTheApplication" name="Assess The Application">
+    <extensionElements>
+      <biodi:bounds x="200" y="200" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable" hitPolicy="ANY">
+      <input id="input1" label="Age" camunda:inputVariable="">
+        <inputExpression id="inputExpression1" typeRef="integer">
+          <text>Age</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_11gxozs" label="Repudiation" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_06xiik4" typeRef="string">
+          <text>Repudiation</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0zb0yor">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1djqscj" label="Cancellation" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0lafw97" typeRef="string">
+          <text>Cancellation</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1gxzb7d">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0n63sx8" label="Unable to Work" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_10aoeq6" typeRef="string">
+          <text>UnableToWork</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0pbqy0e">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1nl0lx0" label="Medicine" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0mdxw6m" typeRef="string">
+          <text>Medicine</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1muqgz9">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0k8x3bd" label="Treatments" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0ur36uy" typeRef="string">
+          <text>Treatments</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_082v3ll">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0kcdwp8" label="Planned Treatments" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_15omjwa" typeRef="string">
+          <text>PlannedTreatments</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_03y2t8y">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0mcvrfw" label="Illness" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_1gegg5a" typeRef="string">
+          <text>Illness</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_09yuwxe">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_074ux9r" label="Addiction" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0jo80vl" typeRef="string">
+          <text>Addiction</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1fxhwr0">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0ht6mbj" label="Cancer" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0csk87d" typeRef="string">
+          <text>Cancer</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0vgbw60">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0vjs3go" label="Cancer Type" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0t3zhxn" typeRef="string">
+          <text>CancerType</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_11xwkq1">
+          <text><![CDATA["Blood","Breast","Skin","Other"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1sztr7v" label="HIV" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_1klwimj" typeRef="string">
+          <text>HIV</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0wuau8d">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1v800hf" label="Disability" camunda:inputVariable="">
+        <inputExpression id="LiteralExpression_0t6bt3b" typeRef="string">
+          <text>Disability</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0wwlccw">
+          <text><![CDATA["Yes","No"]]></text>
+        </inputValues>
+      </input>
+      <output id="output1" label="Eligibility" name="Eligibility" typeRef="string">
+        <outputValues id="UnaryTests_05p5kjk">
+          <text><![CDATA["Reject","Accept","Offer Alternative"]]></text>
+        </outputValues>
+      </output>
+      <rule id="row-216539556-4">
+        <inputEntry id="UnaryTests_19qhi7e">
+          <text><![CDATA[>= 65]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kkc6dz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uvwe69">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kj4vtw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_039ir3k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tdysty">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oud4aa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rs1k16">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0niw3zo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_111a9kt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0frmccg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0egaote">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18y260n">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hi440d">
+          <text><![CDATA["Reject"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-216539556-1">
+        <inputEntry id="UnaryTests_04qwucb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1or1d93">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wlk118">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nfjel9">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vdmxn2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eeksw7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nxzz1i">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08whe8c">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09lcc8j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wpdm80">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fnt67u">
+          <text><![CDATA["Blood", "Breast", "Skin","Other",""]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lwp789">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1whuwon">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mau2z4">
+          <text><![CDATA["Reject"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-216539556-2">
+        <inputEntry id="UnaryTests_05dkydh">
+          <text><![CDATA[< 65]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v7qode">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06mcu27">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17kzml6">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jzdtrx">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ir02zg">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eki8w9">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h6of6j">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03sr7ju">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vzocfj">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07t8ob0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f6ifmc">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_131e1du">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dsf82s">
+          <text><![CDATA["Accept"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-216539556-3">
+        <inputEntry id="UnaryTests_0dk38oi">
+          <text><![CDATA[< 65]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0toq0tn">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m60oa1">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l2u77e">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0919h1m">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xwpd25">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gqfjjm">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xxbfsr">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ay9m0c">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04yx0he">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w9a202">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mpqssv">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l8qq33">
+          <text><![CDATA["Yes", "No"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e702rg">
+          <text><![CDATA["Offer Alternative"]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
