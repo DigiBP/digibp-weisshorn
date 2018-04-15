@@ -115,7 +115,7 @@
     </bpmn:businessRuleTask>
     <bpmn:sequenceFlow id="SequenceFlow_1yz97ds" name="Accept" sourceRef="ExclusiveGateway_0uzvtpu" targetRef="Task_1h987e2" />
     <bpmn:sequenceFlow id="SequenceFlow_1a1nsg6" sourceRef="Task_0umy7al" targetRef="ExclusiveGateway_0uzvtpu" />
-    <bpmn:dataStoreReference id="DataStoreReference_0m91ov4" name="Application DB" />
+    <bpmn:dataStoreReference id="DataStoreReference_0m91ov4" name="Customer DB" />
     <bpmn:dataStoreReference id="DataStoreReference_0faxwzt" name="Customer DB" />
     <bpmn:exclusiveGateway id="ExclusiveGateway_0uzvtpu">
       <bpmn:incoming>SequenceFlow_1a1nsg6</bpmn:incoming>
@@ -151,8 +151,8 @@
     <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_04ugujt" name="Clarification Received">
       <bpmn:incoming>SequenceFlow_0np0a7i</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_01ezv9y</bpmn:outgoing>
-      <bpmn:dataOutputAssociation id="DataOutputAssociation_1dqcdec">
-        <bpmn:targetRef>DataStoreReference_0m91ov4</bpmn:targetRef>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_1kmf0s6">
+        <bpmn:targetRef>DataStoreReference_0faxwzt</bpmn:targetRef>
       </bpmn:dataOutputAssociation>
       <bpmn:messageEventDefinition />
     </bpmn:intermediateCatchEvent>
@@ -288,7 +288,7 @@
       <bpmndi:BPMNShape id="DataStoreReference_0m91ov4_di" bpmnElement="DataStoreReference_0m91ov4">
         <dc:Bounds x="188" y="531.4890282131662" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="176" y="585" width="75" height="12" />
+          <dc:Bounds x="180" y="585" width="68" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="DataInputAssociation_18ubgdc_di" bpmnElement="DataInputAssociation_18ubgdc">
@@ -609,17 +609,6 @@
           <dc:Bounds x="1071.5385438972162" y="11.068421052631635" width="89" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataOutputAssociation_1dqcdec_di" bpmnElement="DataOutputAssociation_1dqcdec">
-        <di:waypoint xsi:type="dc:Point" x="1065" y="477" />
-        <di:waypoint xsi:type="dc:Point" x="1065" y="530" />
-        <di:waypoint xsi:type="dc:Point" x="859" y="530" />
-        <di:waypoint xsi:type="dc:Point" x="859" y="511" />
-        <di:waypoint xsi:type="dc:Point" x="756" y="511" />
-        <di:waypoint xsi:type="dc:Point" x="756" y="530" />
-        <di:waypoint xsi:type="dc:Point" x="339" y="530" />
-        <di:waypoint xsi:type="dc:Point" x="339" y="555" />
-        <di:waypoint xsi:type="dc:Point" x="238" y="555" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0zq6v6f_di" bpmnElement="SequenceFlow_0zq6v6f">
         <di:waypoint xsi:type="dc:Point" x="674" y="731" />
         <di:waypoint xsi:type="dc:Point" x="674" y="885" />
@@ -773,6 +762,11 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1106" y="656" width="0" height="12" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1kmf0s6_di" bpmnElement="DataOutputAssociation_1kmf0s6">
+        <di:waypoint xsi:type="dc:Point" x="1065" y="477" />
+        <di:waypoint xsi:type="dc:Point" x="1065" y="537" />
+        <di:waypoint xsi:type="dc:Point" x="823" y="538" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
