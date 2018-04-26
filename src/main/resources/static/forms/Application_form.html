@@ -1,0 +1,80 @@
+
+<html>
+<body>
+<form action="myform.php" method="post">
+<p>Personal details</p>
+<p>Select your title:<br />
+<select name="title">
+<option value="Mr.">Mr.</option>
+<option value="Mrs.">Mrs.</option>
+<option value="College">Dr.</option></select>:<br />
+<p>First name: <input type="text" name="Firstname" /><br />
+<p>Last name: <input type="text" name="Lastname" /><br />
+<p>Street: <input type="text" name="Street" /><br />
+<p>House number: <input type="text" name="Housenumber" /><br />
+<p>City: <input type="text" name="City" /><br />
+<p>Postal code: <input type="text" name="Postalcode" /><br />
+<p>E-mail: <input type="text" name="email" /></p>
+<p><br /></p>
+
+<p>Health details</p>
+<p>Do you received a repudiation from an other private insurance?
+<input type="radio" name="repudiation" value="Yes" checked="checked" /> Yes
+<input type="radio" name="repudiation" value="No" /> No
+<p>Was your health insurance canceled by an other private insurance?
+<input type="radio" name="canceled" value="Yes" checked="checked" /> Yes
+<input type="radio" name="canceled" value="No" /> No
+<p>Age [years]: <input type="text" name="age" /></p>
+<p>Body height [cm]: <input type="text" name="height" /> Weight [kg]: <input type="text" name="weight" /></p>
+<p>Are you unable to work?
+<input type="radio" name="unabletowork" value="Yes" checked="checked" /> Yes
+<input type="radio" name="unabletowork" value="No" /> No
+<p>Do you take medicine?
+<input type="radio" name="medicine" value="Yes" checked="checked" /> Yes
+<input type="radio" name="medicine" value="No" /> No
+<p>If yes, what kind of medicine do you consume:<br />
+<textarea name="medicine" rows="4" cols="40"></textarea></p>
+<p>Have you had ambulant medical treatments in the past?
+<input type="radio" name="mtpast" value="Yes" checked="checked" /> Yes
+<input type="radio" name="mtpast" value="No" /> No
+<p>If yes, what kind of treatments:<br />
+<textarea name="mtpastcomments" rows="4" cols="40"></textarea></p>
+<p>Are ambulant medical treatments planed?
+<input type="radio" name="mtfut" value="Yes" checked="checked" /> Yes
+<input type="radio" name="mtfut" value="No" /> No
+<p>If yes, what kind of treatments:<br />
+<textarea name="mtfutcomments" rows="4" cols="40"></textarea></p>
+<p>Do you have current or past serious illness?
+<input type="radio" name="illness" value="Yes" checked="checked" /> Yes
+<input type="radio" name="illness" value="No" /> No
+<p>If yes, what kind of illness:<br />
+<textarea name="illnesscomments" rows="4" cols="40"></textarea></p>
+<p>Do you have current or past psychotherapies or treatment of addiction?
+<input type="radio" name="psy" value="Yes" checked="checked" /> Yes
+<input type="radio" name="psy" value="No" /> No
+<p>If yes, what kind of therapies or addictions:<br />
+<textarea name="psycomments" rows="4" cols="40"></textarea></p>
+<p>Do you ever had cancer?
+<input type="radio" name="cancer" value="Yes" checked="checked" /> Yes
+<input type="radio" name="cancer" value="No" /> No
+<p>If yes, what kind of cancer:<br />
+<input type="radio" name="canceryes" value="Blood" checked="checked" /> Blood
+<input type="radio" name="canceryes" value="Breast" /> Breast
+<input type="radio" name="canceryes" value="Skin" /> Skin
+<input type="radio" name="canceryes" value="Other" /> Other
+<p>Other:<br />
+<textarea name="othercomments" rows="1" cols="40"></textarea></p>
+<p>Are you infected with HIV?
+<input type="radio" name="hiv" value="Yes" checked="checked" /> Yes
+<input type="radio" name="hiv" value="No" /> No
+<p>Do you have a disability, physical infirmity, organ failure or sterility?
+<input type="radio" name="other" value="Yes" checked="checked" /> Yes
+<input type="radio" name="other" value="No" /> No
+<p>If yes, please describe:<br />
+<textarea name="othercomments" rows="4" cols="40"></textarea></p>
+
+<p><input type="submit" value="Send it!"></p>
+
+</form>
+</body>
+</html>
