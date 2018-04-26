@@ -48,7 +48,7 @@
         <bpmn:flowNodeRef>Task_0h0bwll</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:startEvent id="StartEvent_1" name="Application Received" camunda:formKey="embedded:deployment:forms/Application_form.html">
+    <bpmn:startEvent id="StartEvent_1" name="Application Received" camunda:formKey="embedded:app:forms/Application_form.html">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="Age" label="Age" type="long" />
