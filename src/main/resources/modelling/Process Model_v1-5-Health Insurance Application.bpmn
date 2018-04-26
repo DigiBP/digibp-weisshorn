@@ -51,7 +51,7 @@
     <bpmn:startEvent id="StartEvent_1" name="Application Received">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="Age" label="Age" type="long" />
+          <camunda:formField id="Age" label="Age" type="enum" />
           <camunda:formField id="Repudiation" label="Repudiation" type="string" />
           <camunda:formField id="Cancellation" label="Cancellation" type="string" />
           <camunda:formField id="UnableToWork" label="Unale to Work" type="string" />
@@ -67,11 +67,11 @@
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_10mm6rz</bpmn:outgoing>
-      <bpmn:messageEventDefinition messageRef="Message_0o9vg6m" />
+      <bpmn:messageEventDefinition messageRef="Message_1deonxl" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_10mm6rz" sourceRef="StartEvent_1" targetRef="Task_0a0y4c7" />
     <bpmn:sequenceFlow id="SequenceFlow_0i75t29" sourceRef="Task_0a0y4c7" targetRef="ExclusiveGateway_0k0ulm3" />
-    <bpmn:sequenceFlow id="SequenceFlow_18733kd" name="no" sourceRef="ExclusiveGateway_0k0ulm3" targetRef="Task_0358j12">
+    <bpmn:sequenceFlow id="SequenceFlow_18733kd" name="No" sourceRef="ExclusiveGateway_0k0ulm3" targetRef="Task_0358j12">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${DataComplete=="No"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:userTask id="Task_0a0y4c7" name="Check For Completeness">
@@ -89,7 +89,7 @@
       <bpmn:outgoing>SequenceFlow_18733kd</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_1dbd51c</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="SequenceFlow_1dbd51c" name="yes" sourceRef="ExclusiveGateway_0k0ulm3" targetRef="Task_0umy7al">
+    <bpmn:sequenceFlow id="SequenceFlow_1dbd51c" name="Yes" sourceRef="ExclusiveGateway_0k0ulm3" targetRef="Task_0umy7al">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${DataComplete=="Yes"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_0q1mk4s" sourceRef="Task_0358j12" targetRef="IntermediateThrowEvent_0mynqph" />
@@ -97,7 +97,7 @@
     <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_0mynqph" name="Missing Information Received">
       <bpmn:incoming>SequenceFlow_0q1mk4s</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0dhlog9</bpmn:outgoing>
-      <bpmn:messageEventDefinition messageRef="Message_1ja47n3" />
+      <bpmn:messageEventDefinition messageRef="Message_1hxzc8h" />
     </bpmn:intermediateCatchEvent>
     <bpmn:userTask id="Task_0358j12" name="Request Missing Information">
       <bpmn:incoming>SequenceFlow_18733kd</bpmn:incoming>
@@ -113,7 +113,7 @@
     </bpmn:userTask>
     <bpmn:endEvent id="EndEvent_0zmeqru" name="Letter Of Rejection">
       <bpmn:incoming>SequenceFlow_0mstedc</bpmn:incoming>
-      <bpmn:messageEventDefinition messageRef="Message_00877zt" />
+      <bpmn:messageEventDefinition messageRef="Message_0r2fbuh" />
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1ipsj7j" sourceRef="Task_1h987e2" targetRef="Task_0it6mn7" />
     <bpmn:sequenceFlow id="SequenceFlow_0czgved" sourceRef="Task_0it6mn7" targetRef="IntermediateThrowEvent_166yvp5" />
@@ -156,7 +156,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_1fvdtok" sourceRef="IntermediateThrowEvent_0v3gtdi" targetRef="EndEvent_01118de" />
     <bpmn:sequenceFlow id="SequenceFlow_0g2utjt" sourceRef="Task_0h0bwll" targetRef="ExclusiveGateway_11dasbi" />
     <bpmn:sequenceFlow id="SequenceFlow_08dmzif" name="No" sourceRef="ExclusiveGateway_11dasbi" targetRef="Task_1d3yk3s">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${AnalyseFields=="No"}]]></bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${UnfilledFields=="No"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:exclusiveGateway id="ExclusiveGateway_11dasbi" name="Unfilled Fields?">
       <bpmn:incoming>SequenceFlow_0g2utjt</bpmn:incoming>
@@ -170,7 +170,7 @@
     <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_04ugujt" name="Clarification Received">
       <bpmn:incoming>SequenceFlow_0np0a7i</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_01ezv9y</bpmn:outgoing>
-      <bpmn:messageEventDefinition messageRef="Message_1vf4duh" />
+      <bpmn:messageEventDefinition messageRef="Message_0dwv7u5" />
     </bpmn:intermediateCatchEvent>
     <bpmn:endEvent id="EndEvent_0t8e9cp" name="End">
       <bpmn:incoming>SequenceFlow_1o58a33</bpmn:incoming>
@@ -182,7 +182,7 @@
     <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_1rzxu84" name="Signed Contract Received">
       <bpmn:incoming>SequenceFlow_0wodu3e</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_16636pv</bpmn:outgoing>
-      <bpmn:messageEventDefinition messageRef="Message_0bn1wzb" />
+      <bpmn:messageEventDefinition messageRef="Message_0931q6q" />
     </bpmn:intermediateCatchEvent>
     <bpmn:endEvent id="EndEvent_01118de" name="End">
       <bpmn:incoming>SequenceFlow_1fvdtok</bpmn:incoming>
@@ -223,7 +223,7 @@
     <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_166yvp5" name="Customer Response Received">
       <bpmn:incoming>SequenceFlow_0czgved</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1skjp9w</bpmn:outgoing>
-      <bpmn:messageEventDefinition messageRef="Message_0tvqiex" />
+      <bpmn:messageEventDefinition messageRef="Message_191p5rp" />
     </bpmn:intermediateCatchEvent>
     <bpmn:userTask id="Task_0it6mn7" name="Send Offer">
       <bpmn:incoming>SequenceFlow_1ipsj7j</bpmn:incoming>
@@ -236,13 +236,13 @@
       <bpmn:outgoing>SequenceFlow_1bs7tts</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="SequenceFlow_1c1eais" name="Yes" sourceRef="ExclusiveGateway_11dasbi" targetRef="Task_1n5owke">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${AnalyseFields=="Yes"}]]></bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${UnfilledFields=="Yes"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_01ezv9y" sourceRef="IntermediateThrowEvent_04ugujt" targetRef="Task_1d3yk3s" />
     <bpmn:userTask id="Task_0h0bwll" name="Analyse Individual Form Fields">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="AnalyseFields" label="Analyse Individual Form Fields" type="string" />
+          <camunda:formField id="UnfilledFields" label="Analyse Individual Form Fields" type="string" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_0zq6v6f</bpmn:incoming>
@@ -250,12 +250,12 @@
     </bpmn:userTask>
   </bpmn:process>
   <bpmn:process id="Process_1cvm25z" isExecutable="false" />
-  <bpmn:message id="Message_1ja47n3" name="Message_0tibknm" />
-  <bpmn:message id="Message_00877zt" name="Message_225sfbd" />
-  <bpmn:message id="Message_0tvqiex" name="Message_3rcgfl9" />
-  <bpmn:message id="Message_0bn1wzb" name="Message_1ue6um6" />
-  <bpmn:message id="Message_1vf4duh" name="Message_00unjuq" />
-  <bpmn:message id="Message_0o9vg6m" name="Message_01erkhm" />
+  <bpmn:message id="Message_1deonxl" name="Message_1ke4mu2" />
+  <bpmn:message id="Message_1hxzc8h" name="Message_2n5papr" />
+  <bpmn:message id="Message_0r2fbuh" name="Message_1l94nk6" />
+  <bpmn:message id="Message_0dwv7u5" name="Message_3cnjrjs" />
+  <bpmn:message id="Message_191p5rp" name="Message_2khenvs" />
+  <bpmn:message id="Message_0931q6q" name="Message_3sr1174" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0uvnf2p">
       <bpmndi:BPMNShape id="Participant_1jipwn1_di" bpmnElement="Participant_1jipwn1">
@@ -299,7 +299,7 @@
         <di:waypoint xsi:type="dc:Point" x="453" y="115" />
         <di:waypoint xsi:type="dc:Point" x="525" y="115" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="462" y="145" width="13" height="12" />
+          <dc:Bounds x="461" y="145" width="15" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_03x6cih_di" bpmnElement="Task_0a0y4c7">
@@ -329,7 +329,7 @@
         <di:waypoint xsi:type="dc:Point" x="453" y="706" />
         <di:waypoint xsi:type="dc:Point" x="517" y="706" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="462.5" y="330.2369668246446" width="19" height="12" />
+          <dc:Bounds x="463" y="330" width="19" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="IntermediateCatchEvent_1yn8fd8_di" bpmnElement="IntermediateThrowEvent_0mynqph">
