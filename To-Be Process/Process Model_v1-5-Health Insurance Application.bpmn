@@ -51,7 +51,7 @@
     <bpmn:startEvent id="StartEvent_1" name="Application Received" camunda:formKey="embedded:deployment:forms/Application_form.html">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="Age" label="Age" type="enum" />
+          <camunda:formField id="Age" label="Age" type="long" />
           <camunda:formField id="Repudiation" label="Repudiation" type="string" />
           <camunda:formField id="Cancellation" label="Cancellation" type="string" />
           <camunda:formField id="UnableToWork" label="Unale to Work" type="string" />
