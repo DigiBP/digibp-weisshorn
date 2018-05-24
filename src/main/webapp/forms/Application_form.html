@@ -32,7 +32,7 @@
   <option>No</option>
 </select>
 <p>Age [years]: <input cam-variable-type="Integer" cam-variable-name="Age" /></p>
-<p>Body height [cm]: <input cam-variable-type="String" cam-variable-name="height" /> Weight [kg]: <input cam-variable-type="String" cam-variable-name="weight" /></p>
+<p>Body height [cm]: <input cam-variable-type="Integer" cam-variable-name="height" /> Weight [kg]: <input cam-variable-type="Integer" cam-variable-name="weight" /></p>
 <p>Are you unable to work?
 <select cam-variable-name="UnableToWork"
         cam-variable-type="String">
@@ -88,6 +88,7 @@
 <p>If yes, what kind of cancer:<br />
 <select cam-variable-name="CancerType"
         cam-variable-type="String">
+  <option></option>
   <option>Blood</option>
   <option>Breast</option>
   <option>Skin</option>
