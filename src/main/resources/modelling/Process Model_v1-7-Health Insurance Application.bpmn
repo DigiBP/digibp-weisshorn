@@ -31,6 +31,7 @@
         <bpmn:flowNodeRef>Task_09bbzyz</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_166yvp5</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0it6mn7</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ServiceTask_07m9209</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_00fywk6" name="Back Office">
         <bpmn:flowNodeRef>Task_1h987e2</bpmn:flowNodeRef>
@@ -300,9 +301,9 @@
       <bpmn:incoming>SequenceFlow_0zq6v6f</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0g2utjt</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="SequenceFlow_13an72g" sourceRef="StartEvent_1" targetRef="Task_0umy7al" />
+    <bpmn:sequenceFlow id="SequenceFlow_13an72g" sourceRef="StartEvent_1" targetRef="ServiceTask_07m9209" />
     <bpmn:businessRuleTask id="Task_0umy7al" name="Assess The Application" camunda:resultVariable="Eligibility" camunda:decisionRef="AssessTheApplication" camunda:mapDecisionResult="singleEntry">
-      <bpmn:incoming>SequenceFlow_13an72g</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_10jetl6</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1a1nsg6</bpmn:outgoing>
     </bpmn:businessRuleTask>
     <bpmn:serviceTask id="ServiceTask_00fdw6l" name="Store Customer Data">
@@ -336,6 +337,31 @@
       <bpmn:outgoing>SequenceFlow_0x1etps</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_0x1etps" sourceRef="ServiceTask_00fdw6l" targetRef="ExclusiveGateway_0uzvtpu" />
+    <bpmn:serviceTask id="ServiceTask_07m9209" name="Send Offer2">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="url"><![CDATA[https://hook.integromat.com/ztrs2sage2i09ass4x7nftrxo2c9nfqn
+]]></camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Content-Type">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="payload">
+              <camunda:script scriptFormat="javascript"><![CDATA[out = JSON.stringify({
+    "email": email
+});]]></camunda:script>
+            </camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_13an72g</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_10jetl6</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_10jetl6" sourceRef="ServiceTask_07m9209" targetRef="Task_0umy7al" />
   </bpmn:process>
   <bpmn:process id="Process_1cvm25z" isExecutable="false" />
   <bpmn:message id="Message_1deonxl" name="Message_1ke4mu2" />
@@ -698,7 +724,7 @@
       <bpmndi:BPMNEdge id="SequenceFlow_13an72g_di" bpmnElement="SequenceFlow_13an72g">
         <di:waypoint xsi:type="dc:Point" x="231" y="211" />
         <di:waypoint xsi:type="dc:Point" x="374" y="211" />
-        <di:waypoint xsi:type="dc:Point" x="374" y="666" />
+        <di:waypoint xsi:type="dc:Point" x="374" y="394" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="257.5" y="190" width="90" height="12" />
         </bpmndi:BPMNLabel>
@@ -711,6 +737,16 @@
         <di:waypoint xsi:type="dc:Point" x="649" y="706" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="615" y="685" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_07m9209_di" bpmnElement="ServiceTask_07m9209">
+        <dc:Bounds x="324" y="394" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_10jetl6_di" bpmnElement="SequenceFlow_10jetl6">
+        <di:waypoint xsi:type="dc:Point" x="374" y="474" />
+        <di:waypoint xsi:type="dc:Point" x="374" y="666" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="389" y="564" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
