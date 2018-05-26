@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.14.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.11.3">
   <bpmn:collaboration id="Collaboration_0uvnf2p">
     <bpmn:participant id="Participant_1jipwn1" name="Insurance Company" processRef="ApplicationProcess" />
     <bpmn:participant id="Participant_0oon5tv" name="Customer" processRef="Process_1cvm25z" />
@@ -28,7 +28,6 @@
         <bpmn:flowNodeRef>ExclusiveGateway_05q2gfp</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_09bbzyz</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_166yvp5</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ServiceTask_07m9209</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ServiceTask_1b2peod</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ServiceTask_088r2a5</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ServiceTask_03bmgje</bpmn:flowNodeRef>
@@ -161,7 +160,7 @@
       <bpmn:messageEventDefinition messageRef="Message_1deonxl" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1y8yxc9" name="Reject" sourceRef="ExclusiveGateway_0uzvtpu" targetRef="ServiceTask_1b2peod">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Eligibility=="Reject"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${Eligibility=="Reject"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:endEvent id="EndEvent_0zmeqru" name="Letter Of Rejection">
       <bpmn:incoming>SequenceFlow_1rjpwbd</bpmn:incoming>
@@ -173,7 +172,7 @@
       <bpmn:outgoing>SequenceFlow_1ipsj7j</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="SequenceFlow_1yz97ds" name="Accept" sourceRef="ExclusiveGateway_0uzvtpu" targetRef="Task_1h987e2">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Eligibility=="Accept"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${Eligibility=="Accept"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1a1nsg6" sourceRef="Task_0umy7al" targetRef="ServiceTask_00fdw6l" />
     <bpmn:exclusiveGateway id="ExclusiveGateway_0uzvtpu">
@@ -184,16 +183,16 @@
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="SequenceFlow_0np0a7i" sourceRef="Task_1n5owke" targetRef="IntermediateThrowEvent_04ugujt" />
     <bpmn:sequenceFlow id="SequenceFlow_0r2u88e" name="Yes" sourceRef="ExclusiveGateway_05q2gfp" targetRef="Task_1qxkqjp">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${AcceptOffer=="Yes"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${AcceptOffer=="Yes"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1nn27vw" sourceRef="Task_1qxkqjp" targetRef="ServiceTask_03bmgje" />
     <bpmn:sequenceFlow id="SequenceFlow_0wodu3e" sourceRef="ServiceTask_03bmgje" targetRef="IntermediateThrowEvent_1rzxu84" />
     <bpmn:sequenceFlow id="SequenceFlow_0zq6v6f" name="Offer Alternative" sourceRef="ExclusiveGateway_0uzvtpu" targetRef="Task_0h0bwll">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Eligibility=="Offer Alternative"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${Eligibility=="Offer Alternative"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1bs7tts" sourceRef="Task_1d3yk3s" targetRef="ServiceTask_088r2a5" />
     <bpmn:sequenceFlow id="SequenceFlow_08h1c7y" name="No" sourceRef="ExclusiveGateway_05q2gfp" targetRef="EndEvent_132wkxm">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${AcceptOffer=="No"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${AcceptOffer=="No"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1skjp9w" sourceRef="IntermediateThrowEvent_166yvp5" targetRef="Task_09bbzyz" />
     <bpmn:sequenceFlow id="SequenceFlow_1w6ykle" sourceRef="Task_09bbzyz" targetRef="ExclusiveGateway_05q2gfp" />
@@ -203,7 +202,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_1fvdtok" sourceRef="IntermediateThrowEvent_0v3gtdi" targetRef="EndEvent_01118de" />
     <bpmn:sequenceFlow id="SequenceFlow_0g2utjt" sourceRef="Task_0h0bwll" targetRef="ExclusiveGateway_11dasbi" />
     <bpmn:sequenceFlow id="SequenceFlow_08dmzif" name="No" sourceRef="ExclusiveGateway_11dasbi" targetRef="Task_1d3yk3s">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${UnfilledFields=="No"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${UnfilledFields=="No"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:exclusiveGateway id="ExclusiveGateway_11dasbi" name="Unfilled Fields?">
       <bpmn:incoming>SequenceFlow_0g2utjt</bpmn:incoming>
@@ -273,7 +272,7 @@
       <bpmn:outgoing>SequenceFlow_1bs7tts</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="SequenceFlow_1c1eais" name="Yes" sourceRef="ExclusiveGateway_11dasbi" targetRef="Task_1n5owke">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${UnfilledFields=="Yes"}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${UnfilledFields=="Yes"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_01ezv9y" sourceRef="IntermediateThrowEvent_04ugujt" targetRef="Task_1d3yk3s" />
     <bpmn:userTask id="Task_0h0bwll" name="Analyse Individual Form Fields">
@@ -285,9 +284,9 @@
       <bpmn:incoming>SequenceFlow_0zq6v6f</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0g2utjt</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="SequenceFlow_13an72g" sourceRef="StartEvent_1" targetRef="ServiceTask_07m9209" />
+    <bpmn:sequenceFlow id="SequenceFlow_13an72g" sourceRef="StartEvent_1" targetRef="Task_0umy7al" />
     <bpmn:businessRuleTask id="Task_0umy7al" name="Assess The Application" camunda:resultVariable="Eligibility" camunda:decisionRef="AssessTheApplication" camunda:mapDecisionResult="singleEntry">
-      <bpmn:incoming>SequenceFlow_10jetl6</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_13an72g</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1a1nsg6</bpmn:outgoing>
     </bpmn:businessRuleTask>
     <bpmn:serviceTask id="ServiceTask_00fdw6l" name="Store Customer Data">
@@ -295,15 +294,14 @@
         <camunda:connector>
           <camunda:inputOutput>
             <camunda:inputParameter name="method">POST</camunda:inputParameter>
-            <camunda:inputParameter name="url">https://hook.integromat.com/4ov65tp7h5frjhv3ncqa28qn6247imfm
-</camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/4ov65tp7h5frjhv3ncqa28qn6247imfm</camunda:inputParameter>
             <camunda:inputParameter name="headers">
               <camunda:map>
                 <camunda:entry key="Content-Type">application/json</camunda:entry>
               </camunda:map>
             </camunda:inputParameter>
             <camunda:inputParameter name="payload">
-              <camunda:script scriptFormat="javascript">out = JSON.stringify({
+              <camunda:script scriptFormat="javascript"><![CDATA[out = JSON.stringify({
     "Firstname": Firstname,
     "Lastname": Lastname,
     "Street": Street,
@@ -311,7 +309,7 @@
     "City": City,
     "email": email,
     "businessKey": execution.getBusinessKey()
-});</camunda:script>
+});]]></camunda:script>
             </camunda:inputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>http-connector</camunda:connectorId>
@@ -321,46 +319,20 @@
       <bpmn:outgoing>SequenceFlow_0x1etps</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_0x1etps" sourceRef="ServiceTask_00fdw6l" targetRef="ExclusiveGateway_0uzvtpu" />
-    <bpmn:serviceTask id="ServiceTask_07m9209" name="Send Offer2">
-      <bpmn:extensionElements>
-        <camunda:connector>
-          <camunda:inputOutput>
-            <camunda:inputParameter name="method">POST</camunda:inputParameter>
-            <camunda:inputParameter name="url">https://hook.integromat.com/ztrs2sage2i09ass4x7nftrxo2c9nfqn
-</camunda:inputParameter>
-            <camunda:inputParameter name="headers">
-              <camunda:map>
-                <camunda:entry key="Content-Type">application/json</camunda:entry>
-              </camunda:map>
-            </camunda:inputParameter>
-            <camunda:inputParameter name="payload">
-              <camunda:script scriptFormat="javascript">out = JSON.stringify({
-    "email": email
-});</camunda:script>
-            </camunda:inputParameter>
-          </camunda:inputOutput>
-          <camunda:connectorId>http-connector</camunda:connectorId>
-        </camunda:connector>
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_13an72g</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_10jetl6</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="SequenceFlow_10jetl6" sourceRef="ServiceTask_07m9209" targetRef="Task_0umy7al" />
     <bpmn:sequenceFlow id="SequenceFlow_1rjpwbd" sourceRef="ServiceTask_1b2peod" targetRef="EndEvent_0zmeqru" />
     <bpmn:serviceTask id="ServiceTask_1b2peod" name="Reject The Application">
       <bpmn:extensionElements>
         <camunda:connector>
           <camunda:inputOutput>
             <camunda:inputParameter name="method">POST</camunda:inputParameter>
-            <camunda:inputParameter name="url">https://hook.integromat.com/2n20fup3jy3xry95byjnrruqmahyxhez
-</camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/2n20fup3jy3xry95byjnrruqmahyxhez</camunda:inputParameter>
             <camunda:inputParameter name="headers">
               <camunda:map>
                 <camunda:entry key="Content-Type">application/json</camunda:entry>
               </camunda:map>
             </camunda:inputParameter>
             <camunda:inputParameter name="payload">
-              <camunda:script scriptFormat="javascript">out = JSON.stringify({
+              <camunda:script scriptFormat="javascript"><![CDATA[out = JSON.stringify({
     "Firstname": Firstname,
     "Lastname": Lastname,
     "Street": Street,
@@ -368,7 +340,7 @@
     "City": City,
     "email": email,
     "businessKey": execution.getBusinessKey()
-});</camunda:script>
+});]]></camunda:script>
             </camunda:inputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>http-connector</camunda:connectorId>
@@ -383,15 +355,14 @@
         <camunda:connector>
           <camunda:inputOutput>
             <camunda:inputParameter name="method">POST</camunda:inputParameter>
-            <camunda:inputParameter name="url">https://hook.integromat.com/4ov65tp7h5frjhv3ncqa28qn6247imfm
-</camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/ztrs2sage2i09ass4x7nftrxo2c9nfqn</camunda:inputParameter>
             <camunda:inputParameter name="headers">
               <camunda:map>
                 <camunda:entry key="Content-Type">application/json</camunda:entry>
               </camunda:map>
             </camunda:inputParameter>
             <camunda:inputParameter name="payload">
-              <camunda:script scriptFormat="javascript">out = JSON.stringify({
+              <camunda:script scriptFormat="javascript"><![CDATA[out = JSON.stringify({
     "Firstname": Firstname,
     "Lastname": Lastname,
     "Street": Street,
@@ -399,7 +370,7 @@
     "City": City,
     "email": email,
     "businessKey": execution.getBusinessKey()
-});</camunda:script>
+});]]></camunda:script>
             </camunda:inputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>http-connector</camunda:connectorId>
@@ -414,15 +385,14 @@
         <camunda:connector>
           <camunda:inputOutput>
             <camunda:inputParameter name="method">POST</camunda:inputParameter>
-            <camunda:inputParameter name="url">https://hook.integromat.com/08jjrdja517xmjps66lnc6vwg44sderd
-</camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/08jjrdja517xmjps66lnc6vwg44sderd</camunda:inputParameter>
             <camunda:inputParameter name="headers">
               <camunda:map>
                 <camunda:entry key="Content-Type">application/json</camunda:entry>
               </camunda:map>
             </camunda:inputParameter>
             <camunda:inputParameter name="payload">
-              <camunda:script scriptFormat="javascript">out = JSON.stringify({
+              <camunda:script scriptFormat="javascript"><![CDATA[out = JSON.stringify({
     "Firstname": Firstname,
     "Lastname": Lastname,
     "Street": Street,
@@ -430,7 +400,7 @@
     "City": City,
     "email": email,
     "businessKey": execution.getBusinessKey()
-});</camunda:script>
+});]]></camunda:script>
             </camunda:inputParameter>
           </camunda:inputOutput>
           <camunda:connectorId>http-connector</camunda:connectorId>
@@ -466,8 +436,8 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_0vmq51q_di" bpmnElement="MessageFlow_0vmq51q">
-        <di:waypoint x="211" y="-26" />
-        <di:waypoint x="211" y="194" />
+        <di:waypoint xsi:type="dc:Point" x="211" y="-26" />
+        <di:waypoint xsi:type="dc:Point" x="211" y="194" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="123" y="3" width="84" height="12" />
         </bpmndi:BPMNLabel>
@@ -491,29 +461,29 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_1maa17t_di" bpmnElement="MessageFlow_1maa17t">
-        <di:waypoint x="920" y="168" />
-        <di:waypoint x="920" y="-26" />
+        <di:waypoint xsi:type="dc:Point" x="920" y="168" />
+        <di:waypoint xsi:type="dc:Point" x="920" y="-26" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="840" y="1.999999999999993" width="76" height="24" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1y8yxc9_di" bpmnElement="SequenceFlow_1y8yxc9">
-        <di:waypoint x="674" y="681" />
-        <di:waypoint x="674" y="226" />
+        <di:waypoint xsi:type="dc:Point" x="674" y="681" />
+        <di:waypoint xsi:type="dc:Point" x="674" y="226" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="655" y="637" width="32" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1a1nsg6_di" bpmnElement="SequenceFlow_1a1nsg6">
-        <di:waypoint x="424" y="706" />
-        <di:waypoint x="481" y="706" />
+        <di:waypoint xsi:type="dc:Point" x="424" y="706" />
+        <di:waypoint xsi:type="dc:Point" x="481" y="706" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="407.5" y="685" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1yz97ds_di" bpmnElement="SequenceFlow_1yz97ds">
-        <di:waypoint x="699" y="706" />
-        <di:waypoint x="740" y="706" />
+        <di:waypoint xsi:type="dc:Point" x="699" y="706" />
+        <di:waypoint xsi:type="dc:Point" x="740" y="706" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="698" y="685" width="36" height="12" />
         </bpmndi:BPMNLabel>
@@ -522,16 +492,16 @@
         <dc:Bounds x="740" y="666" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1ipsj7j_di" bpmnElement="SequenceFlow_1ipsj7j">
-        <di:waypoint x="790" y="666" />
-        <di:waypoint x="790" y="299" />
-        <di:waypoint x="1120" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="790" y="666" />
+        <di:waypoint xsi:type="dc:Point" x="790" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="1120" y="299" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="760" y="476.5" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_0ppzrv7_di" bpmnElement="MessageFlow_0ppzrv7">
-        <di:waypoint x="1170" y="259" />
-        <di:waypoint x="1170" y="-26" />
+        <di:waypoint xsi:type="dc:Point" x="1170" y="259" />
+        <di:waypoint xsi:type="dc:Point" x="1170" y="-26" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1188" y="-1" width="54" height="12" />
         </bpmndi:BPMNLabel>
@@ -543,8 +513,8 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_1fbib6g_di" bpmnElement="MessageFlow_1fbib6g">
-        <di:waypoint x="1311" y="-26" />
-        <di:waypoint x="1311" y="282" />
+        <di:waypoint xsi:type="dc:Point" x="1311" y="-26" />
+        <di:waypoint xsi:type="dc:Point" x="1311" y="282" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1343.5" y="0.8737864077669997" width="73" height="12" />
         </bpmndi:BPMNLabel>
@@ -556,10 +526,10 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0r2u88e_di" bpmnElement="SequenceFlow_0r2u88e">
-        <di:waypoint x="1551" y="324" />
-        <di:waypoint x="1551" y="495" />
-        <di:waypoint x="1551" y="495" />
-        <di:waypoint x="1551" y="666" />
+        <di:waypoint xsi:type="dc:Point" x="1551" y="324" />
+        <di:waypoint xsi:type="dc:Point" x="1551" y="495" />
+        <di:waypoint xsi:type="dc:Point" x="1551" y="495" />
+        <di:waypoint xsi:type="dc:Point" x="1551" y="666" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1559" y="343" width="19" height="12" />
         </bpmndi:BPMNLabel>
@@ -568,23 +538,23 @@
         <dc:Bounds x="1501" y="666" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1nn27vw_di" bpmnElement="SequenceFlow_1nn27vw">
-        <di:waypoint x="1601" y="706" />
-        <di:waypoint x="1670" y="706" />
-        <di:waypoint x="1670" y="355" />
+        <di:waypoint xsi:type="dc:Point" x="1601" y="706" />
+        <di:waypoint xsi:type="dc:Point" x="1670" y="706" />
+        <di:waypoint xsi:type="dc:Point" x="1670" y="355" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1590.5" y="685" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_04iq9ze_di" bpmnElement="MessageFlow_04iq9ze">
-        <di:waypoint x="1705" y="273" />
-        <di:waypoint x="1705" y="-26" />
+        <di:waypoint xsi:type="dc:Point" x="1705" y="273" />
+        <di:waypoint xsi:type="dc:Point" x="1705" y="-26" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1628" y="11" width="71" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0wodu3e_di" bpmnElement="SequenceFlow_0wodu3e">
-        <di:waypoint x="1756" y="298" />
-        <di:waypoint x="1831" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="1756" y="298" />
+        <di:waypoint xsi:type="dc:Point" x="1831" y="299" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1748.5" y="277.5" width="90" height="12" />
         </bpmndi:BPMNLabel>
@@ -596,8 +566,8 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_1trctol_di" bpmnElement="MessageFlow_1trctol">
-        <di:waypoint x="1845" y="-26" />
-        <di:waypoint x="1845" y="282" />
+        <di:waypoint xsi:type="dc:Point" x="1845" y="-26" />
+        <di:waypoint xsi:type="dc:Point" x="1845" y="282" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1791.5" y="200.75167785234902" width="65" height="24" />
         </bpmndi:BPMNLabel>
@@ -612,8 +582,8 @@
         <dc:Bounds x="931" y="419" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="MessageFlow_06l3h4x_di" bpmnElement="MessageFlow_06l3h4x">
-        <di:waypoint x="981" y="419" />
-        <di:waypoint x="981" y="-26" />
+        <di:waypoint xsi:type="dc:Point" x="981" y="419" />
+        <di:waypoint xsi:type="dc:Point" x="981" y="-26" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="983" y="0" width="64" height="36" />
         </bpmndi:BPMNLabel>
@@ -625,23 +595,23 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0np0a7i_di" bpmnElement="SequenceFlow_0np0a7i">
-        <di:waypoint x="1031" y="459" />
-        <di:waypoint x="1047" y="459" />
+        <di:waypoint xsi:type="dc:Point" x="1031" y="459" />
+        <di:waypoint xsi:type="dc:Point" x="1047" y="459" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="994" y="438" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_071fq31_di" bpmnElement="MessageFlow_071fq31">
-        <di:waypoint x="1064" y="-26" />
-        <di:waypoint x="1064" y="441" />
+        <di:waypoint xsi:type="dc:Point" x="1064" y="-26" />
+        <di:waypoint xsi:type="dc:Point" x="1064" y="441" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1071.5385438972162" y="11.068421052631635" width="89" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0zq6v6f_di" bpmnElement="SequenceFlow_0zq6v6f">
-        <di:waypoint x="674" y="731" />
-        <di:waypoint x="674" y="885" />
-        <di:waypoint x="740" y="885" />
+        <di:waypoint xsi:type="dc:Point" x="674" y="731" />
+        <di:waypoint xsi:type="dc:Point" x="674" y="885" />
+        <di:waypoint xsi:type="dc:Point" x="740" y="885" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="675" y="813" width="83" height="12" />
         </bpmndi:BPMNLabel>
@@ -650,8 +620,8 @@
         <dc:Bounds x="1120" y="845" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1bs7tts_di" bpmnElement="SequenceFlow_1bs7tts">
-        <di:waypoint x="1170" y="845" />
-        <di:waypoint x="1170" y="343" />
+        <di:waypoint xsi:type="dc:Point" x="1170" y="845" />
+        <di:waypoint xsi:type="dc:Point" x="1170" y="343" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1140" y="588" width="90" height="12" />
         </bpmndi:BPMNLabel>
@@ -663,9 +633,9 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_08h1c7y_di" bpmnElement="SequenceFlow_08h1c7y">
-        <di:waypoint x="1551" y="274" />
-        <di:waypoint x="1551" y="211" />
-        <di:waypoint x="1600" y="211" />
+        <di:waypoint xsi:type="dc:Point" x="1551" y="274" />
+        <di:waypoint xsi:type="dc:Point" x="1551" y="211" />
+        <di:waypoint xsi:type="dc:Point" x="1600" y="211" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1559" y="237" width="15" height="12" />
         </bpmndi:BPMNLabel>
@@ -674,15 +644,15 @@
         <dc:Bounds x="1371" y="259" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1skjp9w_di" bpmnElement="SequenceFlow_1skjp9w">
-        <di:waypoint x="1333" y="299" />
-        <di:waypoint x="1371" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="1333" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="1371" y="299" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1352" y="278" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1w6ykle_di" bpmnElement="SequenceFlow_1w6ykle">
-        <di:waypoint x="1471" y="299" />
-        <di:waypoint x="1526" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="1471" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="1526" y="299" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1498.5" y="278" width="0" height="12" />
         </bpmndi:BPMNLabel>
@@ -691,15 +661,15 @@
         <dc:Bounds x="1923" y="259" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_16636pv_di" bpmnElement="SequenceFlow_16636pv">
-        <di:waypoint x="1867" y="299" />
-        <di:waypoint x="1923" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="1867" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="1923" y="299" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1895" y="278" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1o58a33_di" bpmnElement="SequenceFlow_1o58a33">
-        <di:waypoint x="2023" y="299" />
-        <di:waypoint x="2091" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="2023" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="2091" y="299" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2057" y="278" width="0" height="12" />
         </bpmndi:BPMNLabel>
@@ -711,9 +681,9 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_04y4sj1_di" bpmnElement="SequenceFlow_04y4sj1">
-        <di:waypoint x="1705" y="355" />
-        <di:waypoint x="1705" y="409" />
-        <di:waypoint x="1762" y="409" />
+        <di:waypoint xsi:type="dc:Point" x="1705" y="355" />
+        <di:waypoint xsi:type="dc:Point" x="1705" y="409" />
+        <di:waypoint xsi:type="dc:Point" x="1762" y="409" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1675" y="376" width="90" height="12" />
         </bpmndi:BPMNLabel>
@@ -725,15 +695,15 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1fvdtok_di" bpmnElement="SequenceFlow_1fvdtok">
-        <di:waypoint x="1798" y="409" />
-        <di:waypoint x="1831" y="409" />
+        <di:waypoint xsi:type="dc:Point" x="1798" y="409" />
+        <di:waypoint xsi:type="dc:Point" x="1831" y="409" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1814.5" y="388" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0g2utjt_di" bpmnElement="SequenceFlow_0g2utjt">
-        <di:waypoint x="840" y="885" />
-        <di:waypoint x="956" y="885" />
+        <di:waypoint xsi:type="dc:Point" x="840" y="885" />
+        <di:waypoint xsi:type="dc:Point" x="956" y="885" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="898" y="864" width="0" height="12" />
         </bpmndi:BPMNLabel>
@@ -748,32 +718,32 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_08dmzif_di" bpmnElement="SequenceFlow_08dmzif">
-        <di:waypoint x="1006" y="885" />
-        <di:waypoint x="1120" y="884" />
+        <di:waypoint xsi:type="dc:Point" x="1006" y="885" />
+        <di:waypoint xsi:type="dc:Point" x="1120" y="884" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1056.0610149085835" y="863.997539711779" width="15" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1c1eais_di" bpmnElement="SequenceFlow_1c1eais">
-        <di:waypoint x="981" y="860" />
-        <di:waypoint x="981" y="499" />
+        <di:waypoint xsi:type="dc:Point" x="981" y="860" />
+        <di:waypoint xsi:type="dc:Point" x="981" y="499" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="985" y="822" width="19" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_01ezv9y_di" bpmnElement="SequenceFlow_01ezv9y">
-        <di:waypoint x="1083" y="459" />
-        <di:waypoint x="1091" y="459" />
-        <di:waypoint x="1091" y="865" />
-        <di:waypoint x="1119" y="865" />
+        <di:waypoint xsi:type="dc:Point" x="1083" y="459" />
+        <di:waypoint xsi:type="dc:Point" x="1091" y="459" />
+        <di:waypoint xsi:type="dc:Point" x="1091" y="865" />
+        <di:waypoint xsi:type="dc:Point" x="1119" y="865" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1106" y="656" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_13an72g_di" bpmnElement="SequenceFlow_13an72g">
-        <di:waypoint x="231" y="211" />
-        <di:waypoint x="374" y="211" />
-        <di:waypoint x="374" y="394" />
+        <di:waypoint xsi:type="dc:Point" x="231" y="211" />
+        <di:waypoint xsi:type="dc:Point" x="374" y="211" />
+        <di:waypoint xsi:type="dc:Point" x="374" y="666" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="257.5" y="190" width="90" height="12" />
         </bpmndi:BPMNLabel>
@@ -782,28 +752,18 @@
         <dc:Bounds x="481" y="666" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0x1etps_di" bpmnElement="SequenceFlow_0x1etps">
-        <di:waypoint x="581" y="706" />
-        <di:waypoint x="649" y="706" />
+        <di:waypoint xsi:type="dc:Point" x="581" y="706" />
+        <di:waypoint xsi:type="dc:Point" x="649" y="706" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="615" y="685" width="0" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ServiceTask_07m9209_di" bpmnElement="ServiceTask_07m9209">
-        <dc:Bounds x="324" y="394" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_10jetl6_di" bpmnElement="SequenceFlow_10jetl6">
-        <di:waypoint x="374" y="474" />
-        <di:waypoint x="374" y="666" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="389" y="564" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ServiceTask_1b2peod_di" bpmnElement="ServiceTask_1b2peod">
         <dc:Bounds x="624" y="146" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1rjpwbd_di" bpmnElement="SequenceFlow_1rjpwbd">
-        <di:waypoint x="724" y="186" />
-        <di:waypoint x="902" y="186" />
+        <di:waypoint xsi:type="dc:Point" x="724" y="186" />
+        <di:waypoint xsi:type="dc:Point" x="902" y="186" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="813" y="165" width="0" height="12" />
         </bpmndi:BPMNLabel>
@@ -812,8 +772,8 @@
         <dc:Bounds x="1120" y="259" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1oqa8mc_di" bpmnElement="SequenceFlow_1oqa8mc">
-        <di:waypoint x="1220" y="299" />
-        <di:waypoint x="1297" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="1220" y="299" />
+        <di:waypoint xsi:type="dc:Point" x="1297" y="299" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1258.5" y="278" width="0" height="12" />
         </bpmndi:BPMNLabel>
