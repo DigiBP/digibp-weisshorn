@@ -34,6 +34,7 @@
         <bpmn:flowNodeRef>EndEvent_16b5lgl</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0e46j4t</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_17x55fz</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>IntermediateThrowEvent_1fan8q7</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_1p9y9vv" name="Back Office">
         <bpmn:flowNodeRef>UserTask_1spkjtj</bpmn:flowNodeRef>
@@ -191,7 +192,7 @@
       <bpmn:outgoing>SequenceFlow_0rv9tp2</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_0bq9bwp" sourceRef="Task_0e46j4t" targetRef="ExclusiveGateway_0a64z7u" />
-    <bpmn:sequenceFlow id="SequenceFlow_13y7czi" sourceRef="ServiceTask_0xz43ux" targetRef="BusinessRuleTask_0bupfv4" />
+    <bpmn:sequenceFlow id="SequenceFlow_13y7czi" sourceRef="ServiceTask_0xz43ux" targetRef="IntermediateThrowEvent_1fan8q7" />
     <bpmn:serviceTask id="ServiceTask_0xz43ux" name="Verification">
       <bpmn:extensionElements>
         <camunda:connector>
@@ -231,7 +232,7 @@
       <bpmn:outgoing>SequenceFlow_0r0nqs9</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:businessRuleTask id="BusinessRuleTask_0bupfv4" name="Assess The Application" camunda:resultVariable="Eligibility" camunda:decisionRef="AssessTheApplication" camunda:mapDecisionResult="singleEntry">
-      <bpmn:incoming>SequenceFlow_13y7czi</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0f2jo4i</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_02zo5b0</bpmn:outgoing>
     </bpmn:businessRuleTask>
     <bpmn:exclusiveGateway id="ExclusiveGateway_1uiu9a3" name="Eligibility">
@@ -308,8 +309,15 @@
       <bpmn:outgoing>SequenceFlow_1a1hyje</bpmn:outgoing>
       <bpmn:messageEventDefinition messageRef="Message_07was6f" />
     </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0f2jo4i" sourceRef="IntermediateThrowEvent_1fan8q7" targetRef="BusinessRuleTask_0bupfv4" />
+    <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_1fan8q7">
+      <bpmn:incoming>SequenceFlow_13y7czi</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0f2jo4i</bpmn:outgoing>
+      <bpmn:messageEventDefinition messageRef="Message_16nk0vr" />
+    </bpmn:intermediateCatchEvent>
   </bpmn:process>
   <bpmn:process id="Process_025lwye" isExecutable="false" />
+  <bpmn:message id="Message_16nk0vr" name="VER" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0tgelx6">
       <bpmndi:BPMNShape id="Participant_1ggstw7_di" bpmnElement="Participant_1ggstw7">
@@ -623,11 +631,24 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_13y7czi_di" bpmnElement="SequenceFlow_13y7czi">
         <di:waypoint xsi:type="dc:Point" x="93" y="738" />
-        <di:waypoint xsi:type="dc:Point" x="93" y="959" />
+        <di:waypoint xsi:type="dc:Point" x="93" y="815" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="63" y="842.5" width="90" height="12" />
+          <dc:Bounds x="63" y="770.5" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0f2jo4i_di" bpmnElement="SequenceFlow_0f2jo4i">
+        <di:waypoint xsi:type="dc:Point" x="93" y="851" />
+        <di:waypoint xsi:type="dc:Point" x="93" y="959" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="108" y="899" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="IntermediateCatchEvent_1tuxw00_di" bpmnElement="IntermediateThrowEvent_1fan8q7">
+        <dc:Bounds x="75" y="815" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="93" y="855" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
