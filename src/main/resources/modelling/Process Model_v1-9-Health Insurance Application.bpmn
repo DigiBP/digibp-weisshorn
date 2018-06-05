@@ -343,6 +343,7 @@ else if ( Age >40 && Age <=60 ){
 } else{
     sum = standard + 40 * faktorBMI
 }
+long sum1 = (long)sum
 ]]></bpmn:script>
     </bpmn:scriptTask>
     <bpmn:sequenceFlow id="SequenceFlow_10qrma7" sourceRef="ScriptTask_0u7ugd0" targetRef="Task_1rvmj3x" />
@@ -350,7 +351,7 @@ else if ( Age >40 && Age <=60 ){
     <bpmn:userTask id="Task_1rvmj3x" name="task">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="sum" label="sum" type="double" />
+          <camunda:formField id="sum" label="sum" type="long" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_10qrma7</bpmn:incoming>
