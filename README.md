@@ -1,4 +1,4 @@
-# DigiBP Group Weisshorm - Health Insurance Application
+# DigiBP Group Weisshorn - Health Insurance Application
 
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 [![Deploy to Heroku](https://img.shields.io/badge/deploy%20to-Heroku-6762a6.svg?longCache=true)](https://heroku.com/deploy)
@@ -31,10 +31,10 @@ It may be possible that an alternative contract version is required compared to 
 
 1.	The customer opens the google form link https://docs.google.com/forms/d/e/1FAIpQLSd4OtjgHhR-bNpov0TNpOeCzjLxJA_8aA0OUY9xv4d1wJtGcA/viewform and fills out the application form. By pressing the send button, it will be sent via Integromat (HTTP) to the digibp herokuapp with all relevant variables. 
 2.	Integromat sends an email to the health insurance applicant where the email must be verified.
-3.	Now Camunda executes the decision table “Assess the application”. The decision table uses different input variables from the form ( e.g. HIV, cancer, age). According to the variable there are three possible outputs:
-•	Reject
-•	Accept
-•	Offer Alternative
+3.	Now Camunda executes the decision table “Assess the application”. The decision table uses different input variables from the form ( e.g. HIV, cancer, age). According to the variable there are three possible outputs: <br>
+•	Reject <br>
+•	Accept <br>
+•	Offer Alternative <br>
 The application will only be accepted if the applicant is younger than 65 years. If the applicant is over 65 years, the application will be always rejected. In some cases, it would also be possible to offer an alternative (according to variables Medicines, Treatment, Planned Treatment, Illness, Addiction, Cancer, CancerType, HIV, Disability).
 4.	If the application has been accepted Integromat will create and send an offer to the applicant via email. The applicant has to confirm the offer with a google form. <br>
 a.	As soon as we get the confirmation we store the decision in the google sheet. <br>
