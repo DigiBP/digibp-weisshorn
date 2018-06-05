@@ -10,21 +10,30 @@ To have a picture of the current situation, a high level AS-IS process is create
 ## AS-IS Highlevel Process
 ![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process%20Model_v1-6-Health%20Insurance%20Application.jpeg?raw=true)
 
-This process starts when the customer sends the health insurance application by email or post. At the moment our health insurance company is only able to handle physical applications. After we received the application the customer agent checks by himself if it is complete. If the application is not complete furhter information must be requested, nomally via phone or email. When the application is complete the customer agent assesses every application based on the decision table. There are three input variables which are used to calculate the decision:
+1.	The customer sends us a physical application form via post office. The customer agents check the application for completeness. If the form is not complete additional information will be requested. Otherwise the application will be assessed by back office.
+2.	Now the back office executes the decision table “Assess the application” manually. The decision table uses different input variables from the form ( e.g. HIV, cancer, age). According to the variable there are three possible outputs: <br>
+•	Reject <br>
+•	Accept <br>
+•	Offer Alternative <br>
+The application will only be accepted if the applicant is younger than 65 years. If the applicant is over 65 years, the application will be always rejected. In some cases, it would also be possible to offer an alternative (according to variables Medicines, Treatment, Planned Treatment, Illness, Addiction, Cancer, CancerType, HIV, Disability).
+3.	If the application has been accepted the back office creates an offer. <br>
+a.	The offer is sent to the applicant by the customer agent. <br>
+b.	As soon as we receive the decision from the applicant, the customer and the decision is added to the Customer Database (MS Access). <br>
+c.	If the customer rejects the offer the process will end. <br>
+d.	If the customer accepts the offer the back office prepares the contract. <br>
+e.	The contract is sent by customer agent <br>
+f.	Wait until the contract is signed and store contract information in Customer Database (MS Acess). If after 13 days no answer from  the customer is available the process ends. <br>
+4.	If the application has been selected for an alternative offer the back office analyzes the individual form fields. <br>
+a.	If there are unfilled form fields the medical status will be clarified by the customer agent. When the information is available and alternative offer will be created. <br>
+b.	If the application is complete an alternative offer can be created by the back office. <br>
+c.	The offer is sent to the applicant by the customer agent. <br> 
+d.	As soon as we receive the decision from the applicant, the customer and the decision is added to the Customer Database (MS Access). <br>
+e.	If the customer rejects the offer the process will end. <br>
+f.	If the customer accepts the offer the back office prepares the contract. <br>
+g.	The contract is sent by customer agent <br> 
+h.	Wait until the contract is signed and store contract information in Customer Database (MS Access). If after 13 days no answer from  the customer is available the process ends. <br>
+5.	If the application is rejected the customer agent will send a rejection letter to the applicant and the process ends here.
 
-*Category
-
-*Illness
-
-*Risk
-
-There are three possibilities after the assessment of the application is finished.
-
-![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Decision%20Table%20AS%20IS.png?raw=true)
-
-If there is no possibility for a contract with the customer, the customer gets informed about the rejected request. Different possibilities to inform the customer upon the rejected request are possible. The customer may be informed by e-mail, letter or other media. The process will end with the information which is sent to the customer.
-The contract will be prepared if the assessment of the application was successful. This should be the most frequent path after the assessment. It is a critical success factor to keep the cases in the other two paths on a low level. The contract will be sent to the customer for verification and signing afterwards. Again there are different ways how this contract could be sent to the customer and signed by the customer. This could be traditional with a hard copy but could also be in an electronic format. The process will end with a signed contract.
-It may be possible that an alternative contract version is required compared to the one which was initially requested by the customer. The alternative can be offered to the customer prior to the contract preparation. After that step the contract will be sent to the customer for signature as described above. The process again ends with a signed contract.
 
 ## TO-BE Digitalized Process
 ![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process%20Model_v1-9-Health%20Insurance%20Application.jpeg?raw=true)
