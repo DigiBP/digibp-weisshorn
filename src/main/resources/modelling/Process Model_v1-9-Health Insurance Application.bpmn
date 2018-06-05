@@ -5,7 +5,7 @@
   <bpmn:message id="Message_07was6f" name="CRR" />
   <bpmn:message id="Message_15h85nk" name="CR" />
   <bpmn:collaboration id="Collaboration_0tgelx6">
-    <bpmn:participant id="Participant_1ggstw7" name="Insurance Company" processRef="DecisionTest1" />
+    <bpmn:participant id="Participant_1ggstw7" name="Insurance Company" processRef="InsuranceApplicationAssessment" />
     <bpmn:participant id="Participant_0boqzue" name="Customer" processRef="Process_025lwye" />
     <bpmn:messageFlow id="MessageFlow_0w4q2y5" name="Application Sent" sourceRef="Participant_0boqzue" targetRef="StartEvent_1ae1we9" />
     <bpmn:messageFlow id="MessageFlow_05djh4f" name="Send Letter Of Rejection" sourceRef="EndEvent_0t2ztsq" targetRef="Participant_0boqzue" />
@@ -16,7 +16,7 @@
     <bpmn:messageFlow id="MessageFlow_0fht8nw" name="Send Clarification" sourceRef="Participant_0boqzue" targetRef="IntermediateCatchEvent_13hghxw" />
     <bpmn:messageFlow id="MessageFlow_1mpjwb5" name="Send Signed Contract" sourceRef="Participant_0boqzue" targetRef="IntermediateThrowEvent_181qvl0" />
   </bpmn:collaboration>
-  <bpmn:process id="DecisionTest1" name="DecisionTest1" isExecutable="true">
+  <bpmn:process id="InsuranceApplicationAssessment" name="Insurance Application Assessment" isExecutable="true">
     <bpmn:laneSet>
       <bpmn:lane id="Lane_1e6ew1n" name="Customer Agent">
         <bpmn:flowNodeRef>UserTask_1d1mzvk</bpmn:flowNodeRef>
