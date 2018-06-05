@@ -310,7 +310,7 @@
       <bpmn:incoming>SequenceFlow_1a1hyje</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0bq9bwp</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:scriptTask id="ScriptTask_0u7ugd0" name="Calculate health details and standard premium" scriptFormat="JavaScript" camunda:resultVariable="sum">
+    <bpmn:scriptTask id="ScriptTask_0u7ugd0" name="Calculate health details and standard premium" scriptFormat="JavaScript" camunda:resultVariable="sum1">
       <bpmn:incoming>SequenceFlow_1e7vu0e</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_10qrma7</bpmn:outgoing>
       <bpmn:script><![CDATA[heightparse = height / 100
@@ -351,7 +351,7 @@ long sum1 = (long)sum
     <bpmn:userTask id="Task_1rvmj3x" name="task">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="sum" label="sum" type="long" />
+          <camunda:formField id="sum1" label="sum1" type="long" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_10qrma7</bpmn:incoming>
