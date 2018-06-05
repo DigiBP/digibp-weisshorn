@@ -155,6 +155,7 @@
           <camunda:formField id="mtpastcomments" label="If yes, what kind of treatments:" type="string" />
           <camunda:formField id="OfferAccepted" label="Offer Accepted?" type="string" />
           <camunda:formField id="businessKey" label="Business Key" type="long" />
+          <camunda:formField id="doyouaccepttheoffer" label="Do you accept the offer?" type="string" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:outgoing>SequenceFlow_07ydu8x</bpmn:outgoing>
