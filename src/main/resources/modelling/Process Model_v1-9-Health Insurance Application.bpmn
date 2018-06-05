@@ -25,7 +25,6 @@
         <bpmn:flowNodeRef>EndEvent_0t2ztsq</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>StartEvent_1ae1we9</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ServiceTask_0h6u9m2</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>IntermediateThrowEvent_17x55fz</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ServiceTask_0xz43ux</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_0s0jt3k</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_09ljn0z</bpmn:flowNodeRef>
@@ -35,7 +34,7 @@
         <bpmn:flowNodeRef>EndEvent_16b5lgl</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0e46j4t</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ScriptTask_0u7ugd0</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_1rvmj3x</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>IntermediateThrowEvent_17x55fz</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_1p9y9vv" name="Back Office">
         <bpmn:flowNodeRef>UserTask_1spkjtj</bpmn:flowNodeRef>
@@ -189,14 +188,9 @@
         </camunda:connector>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1dkgm2k</bpmn:incoming>
-      <bpmn:incoming>SequenceFlow_0e2x39o</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_10qrma7</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0rv9tp2</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_17x55fz" name="Customer Response Received">
-      <bpmn:incoming>SequenceFlow_0rv9tp2</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1a1hyje</bpmn:outgoing>
-      <bpmn:messageEventDefinition messageRef="Message_07was6f" />
-    </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0bq9bwp" sourceRef="Task_0e46j4t" targetRef="ExclusiveGateway_0a64z7u" />
     <bpmn:sequenceFlow id="SequenceFlow_13y7czi" sourceRef="ServiceTask_0xz43ux" targetRef="BusinessRuleTask_0bupfv4" />
     <bpmn:serviceTask id="ServiceTask_0xz43ux" name="Verification">
@@ -310,7 +304,7 @@
       <bpmn:incoming>SequenceFlow_1a1hyje</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0bq9bwp</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:scriptTask id="ScriptTask_0u7ugd0" name="Calculate health details and standard premium" scriptFormat="JavaScript" camunda:resultVariable="sum1">
+    <bpmn:scriptTask id="ScriptTask_0u7ugd0" name="Calculate health details and standard premium" scriptFormat="JavaScript" camunda:resultVariable="sum">
       <bpmn:incoming>SequenceFlow_1e7vu0e</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_10qrma7</bpmn:outgoing>
       <bpmn:script><![CDATA[heightparse = height / 100
@@ -342,21 +336,14 @@ else if ( Age >40 && Age <=60 ){
     sum = standard + 30 * faktorBMI
 } else{
     sum = standard + 40 * faktorBMI
-}
-long sum1 = (long)sum
-]]></bpmn:script>
+}]]></bpmn:script>
     </bpmn:scriptTask>
-    <bpmn:sequenceFlow id="SequenceFlow_10qrma7" sourceRef="ScriptTask_0u7ugd0" targetRef="Task_1rvmj3x" />
-    <bpmn:sequenceFlow id="SequenceFlow_0e2x39o" sourceRef="Task_1rvmj3x" targetRef="ServiceTask_0h6u9m2" />
-    <bpmn:userTask id="Task_1rvmj3x" name="task">
-      <bpmn:extensionElements>
-        <camunda:formData>
-          <camunda:formField id="sum1" label="sum1" type="long" />
-        </camunda:formData>
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_10qrma7</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0e2x39o</bpmn:outgoing>
-    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_10qrma7" sourceRef="ScriptTask_0u7ugd0" targetRef="ServiceTask_0h6u9m2" />
+    <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_17x55fz" name="Customer Response Received">
+      <bpmn:incoming>SequenceFlow_0rv9tp2</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1a1hyje</bpmn:outgoing>
+      <bpmn:messageEventDefinition messageRef="Message_07was6f" />
+    </bpmn:intermediateCatchEvent>
   </bpmn:process>
   <bpmn:process id="Process_025lwye" isExecutable="false" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -410,9 +397,9 @@ long sum1 = (long)sum
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="IntermediateCatchEvent_0o684gz_di" bpmnElement="IntermediateThrowEvent_17x55fz">
-        <dc:Bounds x="840" y="679" width="36" height="36" />
+        <dc:Bounds x="877" y="680" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="833" y="719" width="50" height="36" />
+          <dc:Bounds x="869" y="720" width="52" height="36" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ServiceTask_0h6u9m2_di" bpmnElement="ServiceTask_0h6u9m2">
@@ -483,10 +470,10 @@ long sum1 = (long)sum
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1a1hyje_di" bpmnElement="SequenceFlow_1a1hyje">
-        <di:waypoint xsi:type="dc:Point" x="876" y="697" />
+        <di:waypoint xsi:type="dc:Point" x="913" y="698" />
         <di:waypoint xsi:type="dc:Point" x="977" y="697" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="881.5" y="676" width="90" height="12" />
+          <dc:Bounds x="900" y="676.5" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_05vr3o1_di" bpmnElement="SequenceFlow_05vr3o1">
@@ -536,9 +523,9 @@ long sum1 = (long)sum
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0rv9tp2_di" bpmnElement="SequenceFlow_0rv9tp2">
         <di:waypoint xsi:type="dc:Point" x="812" y="697" />
-        <di:waypoint xsi:type="dc:Point" x="840" y="697" />
+        <di:waypoint xsi:type="dc:Point" x="877" y="698" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="781" y="676" width="90" height="12" />
+          <dc:Bounds x="799.5" y="676.5" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1mb8l7a_di" bpmnElement="SequenceFlow_1mb8l7a">
@@ -612,10 +599,10 @@ long sum1 = (long)sum
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_1tl869q_di" bpmnElement="MessageFlow_1tl869q">
-        <di:waypoint xsi:type="dc:Point" x="858" y="344" />
-        <di:waypoint xsi:type="dc:Point" x="858" y="679" />
+        <di:waypoint xsi:type="dc:Point" x="895" y="344" />
+        <di:waypoint xsi:type="dc:Point" x="895" y="680" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="864" y="397.35435435435437" width="73" height="12" />
+          <dc:Bounds x="901" y="397.176119402985" width="73" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="MessageFlow_08bwlcb_di" bpmnElement="MessageFlow_08bwlcb">
@@ -682,21 +669,11 @@ long sum1 = (long)sum
       <bpmndi:BPMNEdge id="SequenceFlow_10qrma7_di" bpmnElement="SequenceFlow_10qrma7">
         <di:waypoint xsi:type="dc:Point" x="432" y="712" />
         <di:waypoint xsi:type="dc:Point" x="432" y="698" />
-        <di:waypoint xsi:type="dc:Point" x="550" y="698" />
+        <di:waypoint xsi:type="dc:Point" x="712" y="698" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="447" y="699" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_0e2x39o_di" bpmnElement="SequenceFlow_0e2x39o">
-        <di:waypoint xsi:type="dc:Point" x="650" y="698" />
-        <di:waypoint xsi:type="dc:Point" x="712" y="698" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="681" y="677" width="0" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="UserTask_02z92vz_di" bpmnElement="Task_1rvmj3x">
-        <dc:Bounds x="550" y="658" width="100" height="80" />
-      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
