@@ -8,7 +8,7 @@ This README is used to document the project about the digitalization of a health
 To have a picture of the current situation, a high level AS-IS process is created with BPMN 2.0. Together with the decision table, this AS-IS process is allready executable but requires a lot of human interaction. To reduce human tasks, the process is then digitalized and every step of digitalization is documented (TO-BE Digitalized).
 
 ## AS-IS Highlevel Process
-![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process%20Model%20AS%20IS.jpeg)
+![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process%20Model_v1-6-Health%20Insurance%20Application.jpeg?raw=true)
 
 This process starts when the customer sends the health insurance application by email or post. At the moment our health insurance company is only able to handle physical applications. After we received the application the customer agent checks by himself if it is complete. If the application is not complete furhter information must be requested, nomally via phone or email. When the application is complete the customer agent assesses every application based on the decision table. There are three input variables which are used to calculate the decision:
 
