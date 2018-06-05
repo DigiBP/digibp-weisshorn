@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="definitions_0su6yn0" name="definitions" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="decision" name="Offer Accepted?">
+    <decisionTable id="decisionTable">
+      <input id="input1" label="OfferAccepted">
+        <inputExpression id="inputExpression1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output1" label="doyouaccepttheoffer" name="" typeRef="string" />
+      <rule id="row-819811541-1">
+        <inputEntry id="UnaryTests_195w87z">
+          <text><![CDATA["Yes"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02lidvu">
+          <text><![CDATA["Yes"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="row-819811541-2">
+        <inputEntry id="UnaryTests_0q4pu2h">
+          <text><![CDATA["No"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lzec2t">
+          <text><![CDATA["No"]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
