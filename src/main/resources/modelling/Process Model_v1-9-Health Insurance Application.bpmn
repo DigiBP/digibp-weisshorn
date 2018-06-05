@@ -27,7 +27,6 @@
         <bpmn:flowNodeRef>ServiceTask_0h6u9m2</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_17x55fz</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ServiceTask_0xz43ux</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_0ba9w7f</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_0s0jt3k</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_09ljn0z</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_181qvl0</bpmn:flowNodeRef>
@@ -72,7 +71,7 @@
     <bpmn:sequenceFlow id="SequenceFlow_1uh10zy" name="Offer Alternative" sourceRef="ExclusiveGateway_1uiu9a3" targetRef="UserTask_1spkjtj">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${Eligibility=="Offer Alternative"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="SequenceFlow_1e7vu0e" name="Accept" sourceRef="ExclusiveGateway_1uiu9a3" targetRef="Task_0ba9w7f">
+    <bpmn:sequenceFlow id="SequenceFlow_1e7vu0e" name="Accept" sourceRef="ExclusiveGateway_1uiu9a3" targetRef="ServiceTask_0h6u9m2">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[${Eligibility=="Accept"}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_02zo5b0" sourceRef="BusinessRuleTask_0bupfv4" targetRef="ExclusiveGateway_1uiu9a3" />
@@ -188,7 +187,7 @@
         </camunda:connector>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1dkgm2k</bpmn:incoming>
-      <bpmn:incoming>SequenceFlow_1lt5zzd</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1e7vu0e</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0rv9tp2</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_17x55fz" name="Customer Response Received">
@@ -256,42 +255,6 @@
       <bpmn:incoming>SequenceFlow_044yqqo</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1dkgm2k</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="SequenceFlow_1lt5zzd" sourceRef="Task_0ba9w7f" targetRef="ServiceTask_0h6u9m2" />
-    <bpmn:scriptTask id="Task_0ba9w7f" name="Calculate health details and standard premium" scriptFormat="JavaScript" camunda:resultVariable="sum">
-      <bpmn:incoming>SequenceFlow_1e7vu0e</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1lt5zzd</bpmn:outgoing>
-      <bpmn:script><![CDATA[heightparse = height / 100
-x = heightparse * heightparse
-BMI = weight / x
-
-faktorBMI = 0
-if (BMI <=16){
-faktorBMI = 1.2
-}
-else if (BMI >25 && BMI <=32){
-faktorBMI = 1.2
-}
-else if (BMI >32){
-faktorBMI = 1.6
-} else{
-faktorBMI = 1
-}
-
-    sum = 0
-    standard = 40
-if ( Age <= 20 ) {
-    sum = standard + 0
-    }
-else if ( Age >20 && Age <=40 ){
-    sum = standard + 15 * faktorBMI
-}
-else if ( Age >40 && Age <=60 ){
-    sum = standard + 30 * faktorBMI
-} else{
-    sum = standard + 40 * faktorBMI
-}
-]]></bpmn:script>
-    </bpmn:scriptTask>
     <bpmn:endEvent id="EndEvent_0s0jt3k" name="Contract Saved">
       <bpmn:incoming>SequenceFlow_1c73kwk</bpmn:incoming>
     </bpmn:endEvent>
@@ -513,7 +476,8 @@ else if ( Age >40 && Age <=60 ){
       <bpmndi:BPMNEdge id="SequenceFlow_1e7vu0e_di" bpmnElement="SequenceFlow_1e7vu0e">
         <di:waypoint xsi:type="dc:Point" x="385" y="999" />
         <di:waypoint xsi:type="dc:Point" x="432" y="999" />
-        <di:waypoint xsi:type="dc:Point" x="432" y="738" />
+        <di:waypoint xsi:type="dc:Point" x="432" y="698" />
+        <di:waypoint xsi:type="dc:Point" x="712" y="698" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="439" y="993" width="36" height="12" />
         </bpmndi:BPMNLabel>
@@ -669,16 +633,6 @@ else if ( Age >40 && Age <=60 ){
           <dc:Bounds x="63" y="842.5" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_1lt5zzd_di" bpmnElement="SequenceFlow_1lt5zzd">
-        <di:waypoint xsi:type="dc:Point" x="482" y="698" />
-        <di:waypoint xsi:type="dc:Point" x="712" y="698" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="597" y="677" width="0" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="ScriptTask_0b564co_di" bpmnElement="Task_0ba9w7f">
-        <dc:Bounds x="382" y="658" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BusinessRuleTask_1rv10e6_di" bpmnElement="Task_10hl1rt">
         <dc:Bounds x="1042" y="658" width="100" height="80" />
       </bpmndi:BPMNShape>
