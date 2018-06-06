@@ -216,10 +216,10 @@
       <bpmn:incoming>SequenceFlow_07ydu8x</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_13y7czi</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="UserTask_1spkjtj" name="Analyse Individual Form Fields" camunda:candidateGroups="backoffice">
+    <bpmn:userTask id="UserTask_1spkjtj" name="Analyse Individual Form Fields" camunda:candidateUsers="visana" camunda:candidateGroups="backoffice">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="UnfilledFields" label="Analyse Individual Form Fields" type="string" />
+          <camunda:formField id="UnfilledFields" label="Unfilled Fields?" type="string" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1uh10zy</bpmn:incoming>
@@ -314,7 +314,7 @@
     </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1d63ch8" sourceRef="UserTask_1d1mzvk" targetRef="Task_19ccx88" />
     <bpmn:sequenceFlow id="SequenceFlow_0w6f6gl" sourceRef="Task_19ccx88" targetRef="UserTask_1tycfq7" />
-    <bpmn:userTask id="Task_19ccx88" name="Check if Clarification Received">
+    <bpmn:userTask id="Task_19ccx88" name="Check if Clarification Received" camunda:candidateGroups="customeragent">
       <bpmn:incoming>SequenceFlow_1d63ch8</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0w6f6gl</bpmn:outgoing>
     </bpmn:userTask>
