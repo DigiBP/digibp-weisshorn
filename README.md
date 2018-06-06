@@ -35,8 +35,17 @@ h.	Wait until the contract is signed and store contract information in Customer 
 5.	If the application is rejected the customer agent will send a rejection letter to the applicant and the process ends here.
 
 ## Decision Table
-The decision table "Assess The Application" uses the process variables createt either manually (AS-IS process) or automatically by the submitted Application Form (To-Be process). There is no modification needed to prepare the decision table for the automated process. No picture is shared within this readme, as the table contains 13 inputs with 32 rows. Please follow the link to the dmm for further studies: <br> <br>
-digibp-weisshorn/src/main/resources/modelling/Decicion Table_v1-6_Application Assessment.dmn
+The decision table "Assess The Application" uses the process variables createt either manually (AS-IS process) or automatically by the submitted Application Form (To-Be process). There is no modification needed to prepare the decision table for the automated process. 
+<br>
+By submitting the application form, the applicant submittes 13 variables. Following approach helped to keep the table as small as possible:<br>
+• identify solutions with the least combination possibilities:
+  - 
+
+No picture is shared within this readme, as the table contains 13 inputs with 32 rows. Please follow the link to the dmn and boolean truth table for further studies: <br> <br>
+dmn: digibp-weisshorn/src/main/resources/modelling/Decicion Table_v1-6_Application Assessment.dmn <br>
+truth table: digibp-weisshorn/To-Be Process/ Decicion Table_v1-4_Application Assessment.xlsx 
+<br><br>
+
 
 ## TO-BE Digitalized Process
 ![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process%20Model_v1-9-Health%20Insurance%20Application.jpeg?raw=true)
