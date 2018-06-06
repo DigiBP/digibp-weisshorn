@@ -79,6 +79,9 @@ f.	As soon as the contract is signed it will be stored in the google sheet and t
 
 ## Integrations
 
+## Premium Calculation
+![RunningProcess](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Premium%20calculation.JPG)
+
 ## Database
 
 ## Live Presentation
