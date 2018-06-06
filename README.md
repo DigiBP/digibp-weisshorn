@@ -40,7 +40,7 @@ The decision table "Assess The Application" uses the process variables createt e
 By submitting the application form, the applicant submittes 13 variables. Following approach helped to keep the table as small as possible:
 <br>
 
-• identify easiest solutions with: 13 time "No" = "Accept", Age >= 65 = "Reject".<br>
+• identify easiest solutions: 13 time "No" = "Accept", Age >= 65 = "Reject".<br>
 • identify solutions with the least combination possibilities: If the five variables "Repudiation",	"Cancellation",	"Unable to Work",	"Cancer" or	"HIV" consists a "No" the application is rejected. Consequently, the other eight variables build the combinations for "Offer Alternative", which means there are more possible combinations (2 times 2^7).<br>
 • Model the easiest and the most combinations on top of the decision table. For the eight variables use one row with possible hits "Yes" or "No".<br>
 • Model the 32 rows for "Reject" below.<br>
