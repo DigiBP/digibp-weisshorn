@@ -86,7 +86,7 @@ Following gif illustrates the running process:
 ![Running Process](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process Run.gif)
 
 Whereas the gif below shows the integrations and the database:
-![Running Process](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integromat.gif)
+![Integrations](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integromat.gif)
 
 
 ## Maintainer
