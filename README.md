@@ -79,10 +79,10 @@ f.	As soon as the contract is signed it will be stored in the google sheet and t
 
 ## Integrations
 
-## Premium Calculation
-![RunningProcess](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Premium%20calculation.JPG)
-
 ## Database
+The application run on the Heroku OpenSource plattform. We decided to use Google Spreadsheet as database to save and read all customer data. The customer data is inserted into the databse as soon the application is processed by the insurance company. <br>
+The business key in the databse identifies the different customer applications and is the main key. It is used for communication with customers to realize instantions of the process. <br>
+
 
 ## Live Presentation
 Following gif illustrates the running process:
