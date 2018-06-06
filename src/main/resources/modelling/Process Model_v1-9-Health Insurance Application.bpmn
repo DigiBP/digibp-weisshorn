@@ -14,6 +14,7 @@
     <bpmn:messageFlow id="MessageFlow_0le5w6t" name="Send Contract" sourceRef="ServiceTask_1khzntd" targetRef="Participant_0boqzue" />
     <bpmn:messageFlow id="MessageFlow_0ceu1vy" name="Request For Medical Information" sourceRef="UserTask_1d1mzvk" targetRef="Participant_0boqzue" />
     <bpmn:messageFlow id="MessageFlow_1mpjwb5" name="Send Signed Contract" sourceRef="Participant_0boqzue" targetRef="IntermediateThrowEvent_181qvl0" />
+    <bpmn:messageFlow id="MessageFlow_1o9s4kf" name="Send Verification" sourceRef="Participant_0boqzue" targetRef="IntermediateThrowEvent_1fan8q7" />
   </bpmn:collaboration>
   <bpmn:process id="DecisionTest1" name="InsuranceApplicationAssessment" isExecutable="true">
     <bpmn:laneSet>
@@ -32,8 +33,8 @@
         <bpmn:flowNodeRef>EndEvent_16b5lgl</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_0e46j4t</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>IntermediateThrowEvent_17x55fz</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>IntermediateThrowEvent_1fan8q7</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_19ccx88</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>IntermediateThrowEvent_1fan8q7</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_1p9y9vv" name="Back Office">
         <bpmn:flowNodeRef>UserTask_1spkjtj</bpmn:flowNodeRef>
@@ -216,7 +217,7 @@
       <bpmn:incoming>SequenceFlow_07ydu8x</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_13y7czi</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="UserTask_1spkjtj" name="Analyse Individual Form Fields" camunda:candidateUsers="visana" camunda:candidateGroups="backoffice">
+    <bpmn:userTask id="UserTask_1spkjtj" name="Analyse Individual Form Fields" camunda:candidateGroups="backoffice">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="UnfilledFields" label="Unfilled Fields?" type="string" />
@@ -307,17 +308,17 @@
       <bpmn:messageEventDefinition messageRef="Message_07was6f" />
     </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0f2jo4i" sourceRef="IntermediateThrowEvent_1fan8q7" targetRef="BusinessRuleTask_0bupfv4" />
-    <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_1fan8q7">
-      <bpmn:incoming>SequenceFlow_13y7czi</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0f2jo4i</bpmn:outgoing>
-      <bpmn:messageEventDefinition messageRef="Message_16nk0vr" />
-    </bpmn:intermediateCatchEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1d63ch8" sourceRef="UserTask_1d1mzvk" targetRef="Task_19ccx88" />
     <bpmn:sequenceFlow id="SequenceFlow_0w6f6gl" sourceRef="Task_19ccx88" targetRef="UserTask_1tycfq7" />
     <bpmn:userTask id="Task_19ccx88" name="Check if Clarification Received" camunda:candidateGroups="customeragent">
       <bpmn:incoming>SequenceFlow_1d63ch8</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0w6f6gl</bpmn:outgoing>
     </bpmn:userTask>
+    <bpmn:intermediateCatchEvent id="IntermediateThrowEvent_1fan8q7" name="Verification Received">
+      <bpmn:incoming>SequenceFlow_13y7czi</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0f2jo4i</bpmn:outgoing>
+      <bpmn:messageEventDefinition messageRef="Message_16nk0vr" />
+    </bpmn:intermediateCatchEvent>
   </bpmn:process>
   <bpmn:process id="Process_025lwye" isExecutable="false" />
   <bpmn:message id="Message_16nk0vr" name="VER" />
@@ -607,20 +608,20 @@
         <di:waypoint xsi:type="dc:Point" x="93" y="738" />
         <di:waypoint xsi:type="dc:Point" x="93" y="815" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="63" y="770.5" width="90" height="12" />
+          <dc:Bounds x="63" y="771" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0f2jo4i_di" bpmnElement="SequenceFlow_0f2jo4i">
         <di:waypoint xsi:type="dc:Point" x="93" y="851" />
         <di:waypoint xsi:type="dc:Point" x="93" y="959" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="108" y="899" width="0" height="12" />
+          <dc:Bounds x="63" y="899" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="IntermediateCatchEvent_1tuxw00_di" bpmnElement="IntermediateThrowEvent_1fan8q7">
         <dc:Bounds x="75" y="815" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="93" y="855" width="0" height="12" />
+          <dc:Bounds x="104" y="852" width="57" height="24" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1d63ch8_di" bpmnElement="SequenceFlow_1d63ch8">
@@ -642,6 +643,14 @@
       <bpmndi:BPMNShape id="UserTask_0qgc4ey_di" bpmnElement="Task_19ccx88">
         <dc:Bounds x="624" y="775" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="MessageFlow_1o9s4kf_di" bpmnElement="MessageFlow_1o9s4kf">
+        <di:waypoint xsi:type="dc:Point" x="208" y="344" />
+        <di:waypoint xsi:type="dc:Point" x="208" y="831" />
+        <di:waypoint xsi:type="dc:Point" x="111" y="831" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="221" y="397" width="85" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
