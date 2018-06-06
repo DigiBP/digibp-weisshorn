@@ -83,7 +83,7 @@ f.	As soon as the contract is signed it will be stored in the google sheet and t
 
 ## Live Presentation
 Following gif illustrates the running process:
-![Running Process](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process Run.gif)
+![RunningProcess](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/ProcessRun.gif)
 
 Whereas the gif below shows the integrations and the database:
 ![Integrations](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integromat.gif)
