@@ -34,6 +34,7 @@ g.	The contract is sent by customer agent <br>
 h.	Wait until the contract is signed and store contract information in Customer Database (MS Access). If after 13 days no answer from  the customer is available the process ends. <br>
 5.	If the application is rejected the customer agent will send a rejection letter to the applicant and the process ends here.
 
+## Decision Table
 
 ## TO-BE Digitalized Process
 ![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process%20Model_v1-9-Health%20Insurance%20Application.jpeg?raw=true)
@@ -58,7 +59,11 @@ e.	The next decision checks if the customer sent the confirmation. If it has bee
 f.	As soon as the contract is signed it will be stored in the google sheet and the process ends.<br>
 6.	If the application is rejected Integromat will send a rejection email to the applicant and the process ends here.<br>
 
+## Integrations
 
+## Database
+
+## Live Presentation
 
 
 code to add images:
