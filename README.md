@@ -82,11 +82,11 @@ f.	As soon as the contract is signed it will be stored in the google sheet and t
 ## Database
 
 ## Live Presentation
+Following gif illustrates the running process:
+![Running Process](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process Run.gif)
 
-
-code to add images:
-note, the image must be on the github repository
-![AS-IS Process](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/20180602_115848.gif)
+Whereas the gif below shows the integrations and the database:
+![Running Process](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integromat.gif)
 
 
 ## Maintainer
