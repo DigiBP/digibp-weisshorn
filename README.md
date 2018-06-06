@@ -37,13 +37,13 @@ h.	Wait until the contract is signed and store contract information in Customer 
 ## Decision Table
 The decision table "Assess The Application" uses the process variables createt either manually (AS-IS process) or automatically by the submitted Application Form (To-Be process). There is no modification needed to prepare the decision table for the automated process. 
 <br>
-By submitting the application form, the applicant submittes 13 variables. Following approach helped to keep the table as small as possible:<br>
+By submitting the application form, the applicant submittes 13 variables. Following approach helped to keep the table as small as possible:
+<br>
 • identify easiest solutions with: 13 time "No" = "Accept", Age >= 65 = "Reject".<br>
 • identify solutions with the least combination possibilities: If the five variables "Repudiation",	"Cancellation",	"Unable to Work",	"Cancer" or	"HIV" consists a "No" the application is rejected. Consequently, the other eight variables build the combinations for "Offer Alternative", which means there are more possible combinations (2 times 2^7).<br>
 • Model the easiest and the most combinations on top of the decision table. For the eight variables use one row with possible hits "Yes" or "No".<br>
 • Model the 32 rows for "Offer Alternative" below.<br>
 • Set the hit policy to "First".<br>
-<br>
 <br>
 By applying this approach, every possible combination is covered.
 <br>
@@ -52,7 +52,6 @@ No picture is shared within this readme, as the table contains 13 inputs with 32
 dmn: digibp-weisshorn/src/main/resources/modelling/Decicion Table_v1-6_Application Assessment.dmn <br>
 truth table: digibp-weisshorn/To-Be Process/ Decicion Table_v1-4_Application Assessment.xlsx 
 <br><br>
-
 
 ## TO-BE Digitalized Process
 ![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process%20Model_v1-9-Health%20Insurance%20Application.jpeg?raw=true)
