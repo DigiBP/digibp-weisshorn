@@ -39,7 +39,7 @@ The decision table "Assess The Application" uses the process variables createt e
 <br>
 By submitting the application form, the applicant submittes 13 variables. Following approach helped to keep the table as small as possible:<br>
 • identify solutions with the least combination possibilities:
-  - 
+
 
 No picture is shared within this readme, as the table contains 13 inputs with 32 rows. Please follow the link to the dmn and boolean truth table for further studies: <br> <br>
 dmn: digibp-weisshorn/src/main/resources/modelling/Decicion Table_v1-6_Application Assessment.dmn <br>
