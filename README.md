@@ -103,6 +103,11 @@ For verification, offer mail and signing contract customers receive a link to go
 The application run on the Heroku OpenSource plattform. We decided to use Google Spreadsheet as database to save and read all customer data. The customer data is inserted into the databse as soon the application is processed by the insurance company. <br>
 The business key in the databse identifies the different customer applications and is the main key. It is used for communication with customers to realize instantions of the process. <br>
 
+All personal contact details of applicants are stored in the database columns B - J. The health status of customers is shown in the columns K - AF. <br>
+
+The premium is calaculated automatically in the databse, based on the customer data. For that reason the BMI of each applicant is calculated based on the applicants height and weight. <br>
+The premium is calculated based on a standard premium which is static and additional costs depending on age and BMI of applicants. The detailed rules are shown in the table below. <br>
+
 
 ## Live Presentation
 Following gif illustrates the running process:
