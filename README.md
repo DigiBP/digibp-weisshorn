@@ -104,10 +104,10 @@ The application run on the Heroku OpenSource plattform. We decided to use Google
 The business key in the databse identifies the different customer applications and is the main key. It is used for communication with customers to realize instantions of the process. <br>
 
 All personal contact details of applicants are stored in the database columns B - J. The health status of customers is shown in the columns K - AF. <br>
-https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/2018-06-06_22-18-29.png
+(https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/2018-06-06_22-18-29.png) <br>
 The premium is calaculated automatically in the databse, based on the customer data. For that reason the BMI of each applicant is calculated based on the applicants height and weight. <br>
 The premium is calculated based on a standard premium which is static and additional costs depending on age and BMI of applicants. The detailed rules are shown in the table below. <br>
-https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/2018-06-06_22-19-52.png
+(https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/2018-06-06_22-19-52.png)
 
 ## Live Presentation
 Following gif illustrates the running process:
