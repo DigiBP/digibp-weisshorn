@@ -78,7 +78,27 @@ f.	As soon as the contract is signed it will be stored in the google sheet and t
 6.	If the application is rejected Integromat will send a rejection email to the applicant and the process ends here.<br>
 
 ## Integrations
-
+The process starts with a google form filled out by a customer.
+![ApplicationForm](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration1.png)
+<br>
+<br>
+The data will be stored in customer database by submitting the Application form.
+![Database](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration2.png)
+<br>
+<br>
+Data will be sent to Camunda’s engine (by the following scenario) from Integromat as a post request containing all necessary data for the application process and then the process starts automatically.
+![SendData](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration3.png)
+![CamundaSendData](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration4.png)
+<br>
+<br>
+For sending verification mail, offer mail and contract to the customer a service task triggers the Integromat’s scenario which receives email, name and business key from the ongoing case in Camunda and sends an email containing a link for a specific purpose that will trigger next step of the process.
+![Verification](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration5.png)
+![IntegromatVerification](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration6.png)
+<br>
+<br>
+For verification, offer mail and signing contract customers receive a link to google form, by entering data to this form data will be saved in the specific database and a message will be sent to Camunda in form of a post request by the following scenario.
+![Link](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration7.png)
+![IntegromatLink](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration8.png)
 ## Database
 The application run on the Heroku OpenSource plattform. We decided to use Google Spreadsheet as database to save and read all customer data. The customer data is inserted into the databse as soon the application is processed by the insurance company. <br>
 The business key in the databse identifies the different customer applications and is the main key. It is used for communication with customers to realize instantions of the process. <br>
