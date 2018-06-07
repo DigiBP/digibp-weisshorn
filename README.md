@@ -96,7 +96,7 @@ For sending a verification mail, offer mail and contract to the customer a servi
 ![IntegromatVerification](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration6.png)
 <br>
 <br>
-To check weather a verification, offer mail or signed contract is receive, the data from the google form is first saved in the specific database and a message will be sent to Camunda in form of a post request by the following scenario to proceed with the process.
+To check weather a verification, offer mail or signed contract is received, the data from the google form is first saved in the specific database and a message will be sent to Camunda in form of a post request by the following scenario to proceed with the process.
 ![Link](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration7.png)
 ![IntegromatLink](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration8.png)
 ## Database
