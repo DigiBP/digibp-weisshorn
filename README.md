@@ -82,21 +82,21 @@ The process starts with a google form filled out by a customer.
 ![ApplicationForm](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration1.png)
 <br>
 <br>
-The data will be stored in customer database by submitting the application form.
+The data will then be stored in the customer database by submitting the application form.
 ![Database](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration2.png)
 <br>
 <br>
-Data will be sent to Camunda’s engine (by the following scenario) from Integromat as a post request containing all necessary data for the application process and then the process starts automatically.
+Afterwards it will be sent to Camunda’s engine (see scenario in belows figure) from Integromat as a post request containing all necessary data for the application process and then the process starts automatically.
 ![SendData](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration3.png)
 ![CamundaSendData](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration4.png)
 <br>
 <br>
-For sending verification mail, offer mail and contract to the customer a service task triggers the Integromat’s scenario which receives email, name and business key from the ongoing case in Camunda and sends an email containing a link for a specific purpose that will trigger next step of the process.
+For sending a verification mail, offer mail and contract to the customer a service task triggers the Integromat’s scenario which receives email, name and business key from the ongoing cases in Camunda and sends an email containing a link for a specific purpose that will trigger the next step of the process.
 ![Verification](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration5.png)
 ![IntegromatVerification](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration6.png)
 <br>
 <br>
-For verification, offer mail and signing contract customers receive a link to google form, by entering data to this form data will be saved in the specific database and a message will be sent to Camunda in form of a post request by the following scenario.
+To check weather a verification, offer mail or signed contract is receive, the data from the google form is first saved in the specific database and a message will be sent to Camunda in form of a post request by the following scenario to proceed with the process.
 ![Link](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration7.png)
 ![IntegromatLink](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration8.png)
 ## Database
@@ -105,8 +105,8 @@ The business key in the databse identifies the different customer applications a
 
 All personal contact details of applicants are stored in the database columns B - J. The health status of customers is shown in the columns K - AF. <br>
 ![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/2018-06-06_22-18-29.png) <br>
-The premium is calaculated automatically in the databse, based on the customer data. For that reason the BMI of each applicant is calculated based on the applicants height and weight. <br>
-The premium is calculated based on a standard premium which is static and additional costs depending on age and BMI of applicants. The detailed rules are shown in the table below. <br>
+The premium is calaculated automatically in the database, based on the customer data. For that reason the BMI of each applicant is calculated based on the applicants height and weight. <br>
+So, starting from a standard and static premium, the additional costs depend on the age and the BMI of the applicant. Following table shows the detailed rules which define the supplementary costs.<br>
 ![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/2018-06-06_22-19-52.png)
 
 ## Live Presentation
