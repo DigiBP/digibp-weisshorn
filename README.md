@@ -3,7 +3,7 @@
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 [![Deploy to Heroku](https://img.shields.io/badge/deploy%20to-Heroku-6762a6.svg?longCache=true)](https://heroku.com/deploy)
 
-This <b>README</b> is used to document the project about the digitalization of a health insurance application process. 
+This README is used to document the project about the digitalization of a health insurance application process. 
 
 To have a picture of the current situation, a high level AS-IS process is created with BPMN 2.0. Together with the decision table, this AS-IS process is allready executable but requires a lot of human interaction. To reduce human tasks, the process is then digitalized and every step of digitalization is documented (TO-BE Digitalized).
 
@@ -50,9 +50,9 @@ By applying this approach, every possible combination is covered.
 <br>
 <br>
 No picture is shared within this readme, as the table contains 13 inputs with 35 rows. Please follow the link to the dmn and boolean truth table for further studies: <br> <br>
-dmn: digibp-weisshorn/src/main/resources/modelling/Decicion Table_v1-6_Application Assessment.dmn <br>
-truth table: digibp-weisshorn/To-Be Process/ Decicion Table_v1-4_Application Assessment.xlsx<br>
-Note for the truth table: Just the possible combinations leading to a rejection of the application are in the truth table. The inputs "Yes" or "No" are projected as booleans 1 and 0. To cover all combinations a boolean truth table is applied.
+<b>dmn:</b> digibp-weisshorn/src/main/resources/modelling/Decicion Table_v1-6_Application Assessment.dmn <br>
+<b>truth table:</b> digibp-weisshorn/To-Be Process/ Decicion Table_v1-4_Application Assessment.xlsx<br>
+<b>Note for the truth table:</b> Just the possible combinations leading to a rejection of the application are in the truth table. The inputs "Yes" or "No" are projected as booleans 1 and 0. To cover all combinations a boolean truth table is applied.
 
 
 ## TO-BE Digitalized Process
