@@ -59,7 +59,7 @@ truth table: digibp-weisshorn/To-Be Process/ Decicion Table_v1-4_Application Ass
 
 1.	The customer opens the google form link https://docs.google.com/forms/d/e/1FAIpQLSd4OtjgHhR-bNpov0TNpOeCzjLxJA_8aA0OUY9xv4d1wJtGcA/viewform and fills out the application form. By pressing the send button, it will be sent via Integromat (HTTP) to the digibp herokuapp with all relevant variables. 
 2.	Integromat sends an email to the health insurance applicant where the email must be verified.
-3.	Now Camunda executes the decision table “Assess the application”. The decision table uses different input variables from the form ( e.g. HIV, cancer, age). According to the variable there are three possible outputs: <br>
+3.	Now Camunda executes the decision table “Assess The Application”. The decision table uses different input variables from the form ( e.g. HIV, cancer, age). According to the variable there are three possible outputs: <br>
 •	Reject <br>
 •	Accept <br>
 •	Offer Alternative <br>
@@ -82,7 +82,7 @@ The process starts with a google form filled out by a customer.
 ![ApplicationForm](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration1.png)
 <br>
 <br>
-The data will be stored in customer database by submitting the Application form.
+The data will be stored in customer database by submitting the application form.
 ![Database](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Integration2.png)
 <br>
 <br>
