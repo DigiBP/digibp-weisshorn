@@ -41,9 +41,9 @@ By submitting the application form, the applicant submittes 13 variables. Follow
 <br>
 
 • identify easiest solutions: 13 time "No" = "Accept", Age >= 65 = "Reject".<br>
-• identify solutions with the least combination possibilities: If the five variables "Repudiation",	"Cancellation",	"Unable to Work",	"Cancer" or	"HIV" consists a "No" the application is rejected. Consequently, the other eight variables build the combinations for "Offer Alternative", which means there are more possible combinations (2 times 2^7).<br>
+• identify solutions with the least combination possibilities: If the five variables "Repudiation",	"Cancellation",	"Unable to Work",	"Cancer" or	"HIV" consists a "Yes" the application is rejected. Consequently, the other eight variables build the combinations for "Offer Alternative", which means there are more possible combinations (2 times 2^7).<br>
 • Model the easiest and the most combinations on top of the decision table. For the eight variables use one row with possible hits "Yes" or "No".<br>
-• Model the 32 rows for "Reject" below.<br>
+• Model the 32 (2*2^(5-1)) rows for "Reject" below.<br>
 • Set the hit policy to "First".<br>
 <br>
 By applying this approach, every possible combination is covered.
