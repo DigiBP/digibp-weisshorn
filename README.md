@@ -49,10 +49,11 @@ By submitting the application form, the applicant submittes 13 variables. Follow
 By applying this approach, every possible combination is covered.
 <br>
 <br>
-No picture is shared within this readme, as the table contains 13 inputs with 32 rows. Please follow the link to the dmn and boolean truth table for further studies: <br> <br>
+No picture is shared within this readme, as the table contains 13 inputs with 35 rows. Please follow the link to the dmn and boolean truth table for further studies: <br> <br>
 dmn: digibp-weisshorn/src/main/resources/modelling/Decicion Table_v1-6_Application Assessment.dmn <br>
-truth table: digibp-weisshorn/To-Be Process/ Decicion Table_v1-4_Application Assessment.xlsx 
-<br><br>
+truth table: digibp-weisshorn/To-Be Process/ Decicion Table_v1-4_Application Assessment.xlsx<br>
+Note for the truth table: Just the possible combinations leading to a rejection of the application are in the truth table. The inputs "Yes" or "No" are projected as booleans 1 and 0. To cover all combinations a boolean truth table is applied.
+
 
 ## TO-BE Digitalized Process
 ![](https://github.com/DigiBP/digibp-weisshorn/blob/master/Wiki/Process%20Model_v1-9-Health%20Insurance%20Application.jpeg?raw=true)
